@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FYP Report</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        /* Add some top margin to the main content to prevent it from overlapping with the fixed navbar */
+        body {
+            padding-top: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .img-comp-container {
+            position: relative;
+            height: 200px;
+            /*should be the same height as the images*/
+        }
+
+        .img-comp-img {
+            position: absolute;
+            width: auto;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .img-comp-img img {
+            display: block;
+            vertical-align: middle;
+        }
+
+        .img-comp-slider {
+            position: absolute;
+            z-index: 9;
+            cursor: ew-resize;
+            /*set the appearance of the slider:*/
+            width: 40px;
+            height: 40px;
+            background-color: #2196F3;
+            opacity: 0.7;
+            border-radius: 50%;
+        }
+    </style>
+
+    <script>
+        function initComparisons() {
+            var x, i;
+            /*find all elements with an "overlay" class:*/
+            x = document.getElementsByClassName("img-comp-overlay");
+            for (i = 0; i < x.length; i++) {
+                /*once for each "overlay" element:
+                pass the "overlay" element as a parameter when executing the compareImages function:*/
+                compareImages(x[i]);
+            }
+            function compareImages(img) {
+                var slider, img, clicked = 0, w, h;
+                /*get the width and height of the img element*/
+                w = img.offsetWidth;
+                h = img.offsetHeight;
+                /*set the width of the img element to 50%:*/
+                img.style.width = (w / 2) + "px";
+                /*create slider:*/
+                slider = document.createElement("DIV");
+                slider.setAttribute("class", "img-comp-slider");
+                /*insert slider*/
+                img.parentElement.insertBefore(slider, img);
+                /*position the slider in the middle:*/
+                slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+                slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+                /*execute a function when the mouse button is pressed:*/
+                slider.addEventListener("mousedown", slideReady);
+                /*and another function when the mouse button is released:*/
+                window.addEventListener("mouseup", slideFinish);
+                /*or touched (for touch screens:*/
+                slider.addEventListener("touchstart", slideReady);
+                /*and released (for touch screens:*/
+                window.addEventListener("touchend", slideFinish);
+                function slideReady(e) {
+                    /*prevent any other actions that may occur when moving over the image:*/
+                    e.preventDefault();
+                    /*the slider is now clicked and ready to move:*/
+                    clicked = 1;
+                    /*execute a function when the slider is moved:*/
+                    window.addEventListener("mousemove", slideMove);
+                    window.addEventListener("touchmove", slideMove);
+                }
+                function slideFinish() {
+                    /*the slider is no longer clicked:*/
+                    clicked = 0;
+                }
+                function slideMove(e) {
+                    var pos;
+                    /*if the slider is no longer clicked, exit this function:*/
+                    if (clicked == 0) return false;
+                    /*get the cursor's x position:*/
+                    pos = getCursorPos(e)
+                    /*prevent the slider from being positioned outside the image:*/
+                    if (pos < 0) pos = 0;
+                    if (pos > w) pos = w;
+                    /*execute a function that will resize the overlay image according to the cursor:*/
+                    slide(pos);
+                }
+                function getCursorPos(e) {
+                    var a, x = 0;
+                    e = (e.changedTouches) ? e.changedTouches[0] : e;
+                    /*get the x positions of the image:*/
+                    a = img.getBoundingClientRect();
+                    /*calculate the cursor's x coordinate, relative to the image:*/
+                    x = e.pageX - a.left;
+                    /*consider any page scrolling:*/
+                    x = x - window.pageXOffset;
+                    return x;
+                }
+                function slide(x) {
+                    /*resize the image:*/
+                    img.style.width = x + "px";
+                    /*position the slider:*/
+                    slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">FYP Report</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#doc">Doc &amp; Tool</a></li>
+                    <li><a href="#challenges">Challenges</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!-- Main Content -->
+
+
+    <div class="container">
+        <h1 class="text-center mb-4">FYP Report Results</h1>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h2>Summary</h2>
+                <p>Insert a summary of the report results here.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <h2>Recommendations</h2>
+                <ul>
+                    <li>Insert recommendation 1 here.</li>
+                    <li>Insert recommendation 2 here.</li>
+                    <li>Insert recommendation 3 here.</li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="row" id="doc_tool">
+            <div class="col-md-12">
+                <h2>Doc & Tool</h2>
+                <p>Insert content for Doc & Tool section here.</p>
+            </div>
+        </div>
+        <div class="row" id="challenges">
+            <div class="col-md-12">
+                <h2>Challenges</h2>
+                <p>Insert content for Challenges section here.</p>
+
+                <h1>Compare Two Images</h1>
+                <p>Click and slide the blue slider to compare two images:</p>
+
+
+                <div class="img-comp-container">
+                    <div class="img-comp-img">
+                        <img src="./image/002org.jpg" alt="original" height="200" />
+                    </div>
+                    <div class="img-comp-img img-comp-overlay">
+                        <img src="./image/002.jpg" alt="002" height="200" />
+                    </div>
+                </div>
+
+                <div class="img-comp-container">
+                    <div class="img-comp-img">
+                        <img src="./image/003org.jpg" alt="original" height="200" />
+                    </div>
+                    <div class="img-comp-img img-comp-overlay">
+                        <img src="./image/003.jpg" alt="003" height="200" />
+                    </div>
+                </div>
+
+                <div class="img-comp-container">
+                    <div class="img-comp-img">
+                        <img src="./image/004org.jpg" alt="original" height="200" />
+                    </div>
+                    <div class="img-comp-img img-comp-overlay">
+                        <img src="./image/004.jpg" alt="004" height="200" />
+                    </div>
+                </div>
+
+                <div class="img-comp-container">
+                    <div class="img-comp-img">
+                        <img src="./image/005org.jpg" alt="original" height="200" />
+                    </div>
+                    <div class="img-comp-img img-comp-overlay">
+                        <img src="./image/005.jpg" alt="005" height="200" />
+                    </div>
+                </div>
+
+                <div class="img-comp-container">
+                    <div class="img-comp-img">
+                        <img src="./image/006org.jpg" alt="original" height="200" />
+                    </div>
+                    <div class="img-comp-img img-comp-overlay">
+                        <img src="./image/006.jpg" alt="006" height="200" />
+                    </div>
+                </div>
+
+                <div class="img-comp-container">
+                    <div class="img-comp-img">
+                        <img src="./image/007org.jpg" alt="original" height="200" />
+                    </div>
+                    <div class="img-comp-img img-comp-overlay">
+                        <img src="./image/007.jpg" alt="007" height="200" />
+                    </div>
+                </div>
+
+                <div class="img-comp-container">
+                    <div class="img-comp-img">
+                        <img src="./image/008org.jpg" alt="original" height="200" />
+                    </div>
+                    <div class="img-comp-img img-comp-overlay">
+                        <img src="./image/008.jpg" alt="008" height="200" />
+                    </div>
+                </div>
+
+                <div class="img
+            </div>
+        </div>
+        <div class=" row" id="contact">
+                    <div class="col-md-12">
+                        <h2>Contact</h2>
+                        <p>Insert content for Contact section here.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Detailed Results</h2>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Experiment</th>
+                                    <th>Result 1</th>
+                                    <th>Result 2</th>
+                                    <th>Result 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Experiment 1</td>
+                                    <td>Insert result 1 here</td>
+                                    <td>Insert result 2 here</td>
+                                    <td>Insert result 3
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Experiment 2</td>
+                                    <td>Insert result 1 here</td>
+                                    <td>Insert result 2 here</td>
+                                    <td>Insert result 3 here</td>
+                                </tr>
+                                <tr>
+                                    <td>Experiment 3</td>
+                                    <td>Insert result 1 here</td>
+                                    <td>Insert result 2 here</td>
+                                    <td>Insert result 3 here</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <script>
+                /*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
+                initComparisons();
+            </script>
+
+
+            <!-- jQuery and Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
