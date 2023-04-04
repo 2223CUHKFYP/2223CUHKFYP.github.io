@@ -50,14 +50,19 @@ body {
     border: black;
     border-radius: 5px;
     border-style: solid;
+    font-size: large;
+    font-style: oblique;
+    padding-left: 2px;
 }
 .nav_button{
     font-style: oblique;
     font-size: large;
     font-family: sans-serif;
     height: 50px;
+    text-align: center;
 }
-.center {
+/*center for buttons*/
+.modified_center {
     margin: auto;
     width: 45%;
     height: 50%;
@@ -79,5 +84,32 @@ body {
     font-size: 45px;
 }
 .nav.navbar-nav{
-    height:50%
+    height:50%;
+    padding: 5px;
+}
+
+/*paragraph title*/
+.p_title{
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
+/*text in paragrahs*/
+.p_text{
+    text-align: justify;
+}
+
+/*center for image*/
+.img_center{
+    height:70%;
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*image caption*/
+.img_caption{
+    font-size: small;
+    text-align: center;
 }
