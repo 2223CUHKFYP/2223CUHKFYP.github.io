@@ -42,7 +42,7 @@ body {
     font-style: italic;
     font-size:20px;
     font-family: sans-serif;
-    color: black;
+    color:#22649b;
 }
 /*Button for navigation*/
 .nav_button:hover{
@@ -112,4 +112,17 @@ body {
 .img_caption{
     font-size: small;
     text-align: center;
+}
+
+/*bdd table*/
+.bdd_table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*bdd cell*/
+.bdd_cell{
+    border: 2px solid black;
+    text-align: center;
+    padding: 15px;
 }
