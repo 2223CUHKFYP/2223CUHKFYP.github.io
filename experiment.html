@@ -189,7 +189,9 @@
                 <p class="p_text">In this section, the MOTS task are performed and evaluated using PCAN and UNICORN.</p>
                 <div class="col-md-6 mb-4">
                     <h2 class="p_subtitle">Normal Result</h2>
+                    <p class="p_text">
                     The following table shows the evaluation results:
+                    </p>
                     <div class="row">
                         <table class="bdd_table">
                             <tr class="bdd_cell">
@@ -215,11 +217,16 @@
                               </tr>
                           </table>
                     </div>
+                    <br>
+                    <p class="p_text">
                     UNICORN obtains a better results as expected, since it is a more sophisticated model then the baseline PCAN.
+                    </p>
                 </div>
                 <div class="col-md-6 mb-4">
                     <h2 class="p_subtitle">Hazing Result</h2>
+                    <p class="p_text">
                     The following table shows the evaluation results after adding hazing to the dataset. In addition, the dataset 0.01, 0.02, 0.06 indicates it is hazed with the corresponding beta value. The bracket after each metrics indicates the difference between it and the normal result of the respective model.
+                    </p>
                     <div class="row">
                         <table class="bdd_table">
                             <tr class="bdd_cell">
@@ -273,12 +280,53 @@
                             </tr>
                         </table>
                     </div>
-                    From above we can see that PCAN and UNICORN peforms worsts when there is haze in the datasets. However, the mMOTSP for UNICORN increases in 0.01 and 0.02, which shows the power of the model.<br>
+                    <br>
+                    <p class="p_text">From above we can see that PCAN and UNICORN peforms worse when there is haze in the datasets. However, the mMOTSP for UNICORN increases in 0.01 and 0.02, which shows the power of the model.<br></p>
                     <div class="col-md-6 mb-4">
                         <h2 class="p_subtitle">Comparision</h2>
-                        The following figures show the performance comparision of each model under different haze dataset:
-
+                        <p class="p_text">The following figures show the performance comparision of each model under different haze dataset:</p>
+                        <div class="row" style="height: 10%;">
+                            <table>
+                            <tr>
+                            <td>
+                                <figure>
+                                    <img src="resources/PCAN_haze.png" alt="Example" class="two_img_center">
+                                    <figcaption class="img_caption">Evaluation Result of PCAN</figcaption>
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="resources/UNICORN_haze.png" alt="Example" class="two_img_center">
+                                    <figcaption class="img_caption">Evaluation Result of UNICORN</figcaption>
+                                </figure>
+                            </td>
+                            </tr>
+                            </table>
+                        </div>
                     </div>
+                    <p class="p_text">We can see that both PCAN and UNICORN has a performance drop when there is haze in the datasets. However, UNICORN seems to be less affected than PCAN, which is proven further with the following figures.</p>
+                    <div class="row" style="height: 10%;">
+                        <table>
+                        <tr>
+                        <td>
+                            <figure>
+                                <img src="resources/PCAN_haze_diff.png" alt="Example" class="two_img_center">
+                                <figcaption class="img_caption">Difference of evaluation metrics under normal dataset of PCAN</figcaption>
+                            </figure>
+                        </td>
+                        <td>
+                            <figure>
+                                <img src="resources/UNICORN_haze_diff.png" alt="Example" class="two_img_center">
+                                <figcaption class="img_caption">Difference of evaluation metrics under normal dataset of UNICORN</figcaption>
+                            </figure>
+                        </td>
+                        </tr>
+                        </table>
+                    </div>
+                    <p class="p_text">Therefore, although haze affects both models, UNICORN has a better performance than the baseline PCAN under haze conditions.</p>
+                <div class="col-md-6 mb-4">
+                    <h2 class="p_subtitle">Dehazing Result</h2>
+                </div>
             </div>
         </div>
         </div>
