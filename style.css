@@ -94,6 +94,13 @@ body {
     font-weight: 700;
 }
 
+/*paragraph subtitle*/
+.p_subtitle{
+    font-family: sans-serif;
+    font-weight:600;
+    font-size: 25px;
+}
+
 /*text in paragrahs*/
 .p_text{
     text-align: justify;
@@ -125,4 +132,21 @@ body {
     border: 2px solid black;
     text-align: center;
     padding: 15px;
+    font-family:"'Times New Roman', Times, serif";
+}
+
+.col-md-6.mb-4{
+    width: 100%;
+}
+
+/* colour for negative values*/
+.negative{
+    color: rgb(211, 50, 50);
+    float:right;
+}
+
+/* colour for postive values*/
+.positive{
+    color: rgb(37, 209, 37);
+    float:right;
 }
