@@ -96,16 +96,17 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html" id="nor_button">PAH2203 Final Year Project Report: Semantic Understanding in Haze Conditions with Video Data<br>
+                <a class="navbar-brand" href="index.html" id="nor_button">PAH2203 Final Year Project Report: Semantic
+                    Understanding in Haze Conditions with Video Data<br>
                     <b style="font-size:medium">Ng Hon Lam 1155143298, CUHK<br>
                         Lam Shi Shing 1155142786, CUHK
                 </a>
-                
+
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    
+
                 <ul class="nav navbar-nav">
                     <li class="nav_button"><a href="index.html">Overview</a></a></li>
                     <li class="nav_button"><a href="dataset.html">Dataset</a></li>
@@ -121,7 +122,10 @@
 
 
     <div class="container">
-        <h1 class="text-center mb-4">Dataset</h1>
+        <div style="margin-top:10rem;">
+            <h1 class="text-center mb-4">Dataset</h1>
+        </div>
+
         <!-- Navigation Bar -->
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -138,119 +142,134 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="modified_center">
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    
-                    <ul class="nav navbar-nav" style="margin-left: 25%;">
-                        <li class="nav_button"><a href="#details">Details</a></li>
-                        <li class="nav_button"><a href="#project_use">Project Use</a></li>
-                    </ul>
-                </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                        <ul class="nav navbar-nav" style="margin-left: 25%;">
+                            <li class="nav_button"><a href="#details">Details</a></li>
+                            <li class="nav_button"><a href="#project_use">Project Use</a></li>
+                        </ul>
+                    </div>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
         <div class="row">
-                <h2 class="p_title">BDD100K</h2>
-                <p class="p_text">
-                    In this project, BDD100K dataset is used for model training, validation and evaluation. The MOT and MOTS subset are used for the corresponding task, while hazing and dehazing are performed on these subsets as well.<br><br>
+            <h2 class="p_title">BDD100K</h2>
+            <p class="p_text">
+                In this project, BDD100K dataset is used for model training, validation and evaluation. The MOT and MOTS
+                subset are used for the corresponding task, while hazing and dehazing are performed on these subsets as
+                well.<br><br>
 
-                    BDD100K is a large-scale diverse driving video dataset with comprehensive annotations that can expose the challenges of street-scene understanding. The dataset contains not only images with
-                    high resolution (720p) and high frame rate (30fps), but also GPS/IMU recordings to preserve the driving trajectories. In total, it has 100K driving videos (40 seconds each) collected from more than 50K rides
-                    , covering New York, San Francisco Bay Area, and other regions.
-                </p>
+                BDD100K is a large-scale diverse driving video dataset with comprehensive annotations that can expose
+                the challenges of street-scene understanding. The dataset contains not only images with
+                high resolution (720p) and high frame rate (30fps), but also GPS/IMU recordings to preserve the driving
+                trajectories. In total, it has 100K driving videos (40 seconds each) collected from more than 50K rides
+                , covering New York, San Francisco Bay Area, and other regions.
+            </p>
         </div>
         <div id="details"></div>
         <div class="row" style="height: 10%;">
             <figure>
                 <img src="resources/bdd_example.png" alt="Example" class="img_center">
-                <figcaption class="img_caption">Example annotations for BDD100K MOTS. Frames are down-sampled for visualization. Referenced in <a href="https://arxiv.org/pdf/1805.04687.pdf">PAPER</a></figcaption>
+                <figcaption class="img_caption">Example annotations for BDD100K MOTS. Frames are down-sampled for
+                    visualization. Referenced in <a href="https://arxiv.org/pdf/1805.04687.pdf">PAPER</a></figcaption>
             </figure>
         </div>
-        
+
         <div class="row">
             <h2 class="p_title">Details</h2>
             <p class="p_text">
-                For the dataset, each video is approximately 40 seconds and annotated at 5 fps, resulting in approximately 200 frames per video. It is diverse in object scale also. The following distributions show that the MOT
+                For the dataset, each video is approximately 40 seconds and annotated at 5 fps, resulting in
+                approximately 200 frames per video. It is diverse in object scale also. The following distributions show
+                that the MOT
                 dataset is not only diverse in visual scale among and within
                 tracks, but also in the temporal range of each track.
-                <div class="row" style="height: 10%;">
-                    <figure>
-                        <img src="resources/bdd_box.png" alt="Example" class="img_center">
-                        <figcaption class="img_caption">Cumulative distributions of the box size (left), the ratio
-                            between the max and min box size for each track (middle) and
-                            track length (right). The dataset is more diverse in object scale.<br>
-                            Referenced in <a href="https://arxiv.org/pdf/1805.04687.pdf">PAPER</a></figcaption>
-                    </figure>
-                </div>
-                Meanwhile, Objects in our tracking data also present complicated occlusion and reappearing patterns as shown in the below figure. An
-                object may be fully occluded or move out of the frame, and then reappear later. The dataset shows the real challenges of object
-                re-identification for tracking in autonomous driving.
-                <div class="row" style="height: 10%;">
-                    <figure>
-                        <img src="resources/bdd_occlusion.png" alt="Example" class="img_center">
-                        <figcaption class="img_caption">Number of occlusions by track (left) and number of
-                            occluded frames for each occlusion (right). The dataset covers
-                            complicated occlusion and reappearing patterns.<br>
-                            Referenced in <a href="https://arxiv.org/pdf/1805.04687.pdf">PAPER</a></figcaption>
-                    </figure>
-                </div>
-                
+            <div class="row" style="height: 10%;">
+                <figure>
+                    <img src="resources/bdd_box.png" alt="Example" class="img_center">
+                    <figcaption class="img_caption">Cumulative distributions of the box size (left), the ratio
+                        between the max and min box size for each track (middle) and
+                        track length (right). The dataset is more diverse in object scale.<br>
+                        Referenced in <a href="https://arxiv.org/pdf/1805.04687.pdf">PAPER</a></figcaption>
+                </figure>
+            </div>
+            Meanwhile, Objects in our tracking data also present complicated occlusion and reappearing patterns as shown
+            in the below figure. An
+            object may be fully occluded or move out of the frame, and then reappear later. The dataset shows the real
+            challenges of object
+            re-identification for tracking in autonomous driving.
+            <div class="row" style="height: 10%;">
+                <figure>
+                    <img src="resources/bdd_occlusion.png" alt="Example" class="img_center">
+                    <figcaption class="img_caption">Number of occlusions by track (left) and number of
+                        occluded frames for each occlusion (right). The dataset covers
+                        complicated occlusion and reappearing patterns.<br>
+                        Referenced in <a href="https://arxiv.org/pdf/1805.04687.pdf">PAPER</a></figcaption>
+                </figure>
+            </div>
+
             </p>
         </div>
         <div class="row" id="project_use">
             <h2 class="p_title">Project Use</h2>
             <p class="p_text">
-                The Multiple Object Tracking (MOT 2020) and Multiple Object Tracking Segmentation (MOTS 2020) subset are used. <br><br>
-                The MOT 2020 is a subset of the 100K videos, but the videos are resampled to 5Hz from 30Hz. The same object in each video has the same label id but objects across videos are always distinct even if they have the same id.<br>
-                Multi-object tracking and segmentation (MOTS 2020) is released in 2020. It is a subset of MOT 2020 Images.<br><br>
+                The Multiple Object Tracking (MOT 2020) and Multiple Object Tracking Segmentation (MOTS 2020) subset are
+                used. <br><br>
+                The MOT 2020 is a subset of the 100K videos, but the videos are resampled to 5Hz from 30Hz. The same
+                object in each video has the same label id but objects across videos are always distinct even if they
+                have the same id.<br>
+                Multi-object tracking and segmentation (MOTS 2020) is released in 2020. It is a subset of MOT 2020
+                Images.<br><br>
                 Both datasets contains 8 categories, which are {1: pedestrian
-                    2: rider
-                    3: car
-                    4: truck
-                    5: bus
-                    6: train
-                    7: motorcycle
-                    8: bicycle}<br>
-                The validation set is used to evaluate the performance for MOT, MOTS tasks. The following tables show the details:
+                2: rider
+                3: car
+                4: truck
+                5: bus
+                6: train
+                7: motorcycle
+                8: bicycle}<br>
+                The validation set is used to evaluate the performance for MOT, MOTS tasks. The following tables show
+                the details:
             </p>
-        <div class="row">
-            <table class="bdd_table">
-                <tr class="bdd_cell">
-                  <th class="bdd_cell">Dataset</th>
-                  <th class="bdd_cell">Number of Videos</th>
-                  <th class="bdd_cell">Number of Frames</th>
-                  <th class="bdd_cell">Size</th>
-                </tr>
-                <tr class="bdd_cell">
-                  <td class="bdd_cell">MOT 2020 Train</td>
-                  <td class="bdd_cell">1400</td>
-                  <td class="bdd_cell">278079</td>
-                  <td class="bdd_cell">31.5 GB</td>
-                </tr>
-                <tr class="bdd_cell">
-                  <td class="bdd_cell">MOT 2020 Validation</td>
-                  <td class="bdd_cell">200</td>
-                  <td class="bdd_cell">39973</td>
-                  <td class="bdd_cell">4.65 GB</td>
-                </tr>
-                <tr class="bdd_cell">
-                  <td class="bdd_cell">MOTS 2020 Train</td>
-                  <td class="bdd_cell">154</td>
-                  <td class="bdd_cell">30817</td>
-                  <td class="bdd_cell">3.68 GB</td>
-                </tr>
-                <tr class="bdd_cell">
-                    <td class="bdd_cell">MOTS 2020 Validation</td>
-                    <td class="bdd_cell">32</td>
-                    <td class="bdd_cell">6475</td>
-                    <td class="bdd_cell">792 MB</td>
-                </tr>
-              </table>
-        </div>
+            <div class="row">
+                <table class="bdd_table">
+                    <tr class="bdd_cell">
+                        <th class="bdd_cell">Dataset</th>
+                        <th class="bdd_cell">Number of Videos</th>
+                        <th class="bdd_cell">Number of Frames</th>
+                        <th class="bdd_cell">Size</th>
+                    </tr>
+                    <tr class="bdd_cell">
+                        <td class="bdd_cell">MOT 2020 Train</td>
+                        <td class="bdd_cell">1400</td>
+                        <td class="bdd_cell">278079</td>
+                        <td class="bdd_cell">31.5 GB</td>
+                    </tr>
+                    <tr class="bdd_cell">
+                        <td class="bdd_cell">MOT 2020 Validation</td>
+                        <td class="bdd_cell">200</td>
+                        <td class="bdd_cell">39973</td>
+                        <td class="bdd_cell">4.65 GB</td>
+                    </tr>
+                    <tr class="bdd_cell">
+                        <td class="bdd_cell">MOTS 2020 Train</td>
+                        <td class="bdd_cell">154</td>
+                        <td class="bdd_cell">30817</td>
+                        <td class="bdd_cell">3.68 GB</td>
+                    </tr>
+                    <tr class="bdd_cell">
+                        <td class="bdd_cell">MOTS 2020 Validation</td>
+                        <td class="bdd_cell">32</td>
+                        <td class="bdd_cell">6475</td>
+                        <td class="bdd_cell">792 MB</td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <div class="row">
             <h2 class="p_title">Reference</h2>
             <ul>
-                <li class="p_text">Paper: <a href="https://arxiv.org/pdf/1805.04687.pdf">BDD100K: A Diverse Driving Dataset for Heterogeneous Multitask Learning</a></li>
+                <li class="p_text">Paper: <a href="https://arxiv.org/pdf/1805.04687.pdf">BDD100K: A Diverse Driving
+                        Dataset for Heterogeneous Multitask Learning</a></li>
                 <li class="p_text">Official Site: <a href="https://www.vis.xyz/bdd100k/">BDD100K</a> </li>
             </ul>
         </div>
