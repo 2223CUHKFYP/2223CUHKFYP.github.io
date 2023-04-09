@@ -98,14 +98,19 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.html" id="nor_button">PAH2203 Final Year Project Report: Semantic
                     Understanding in Haze Conditions with Video Data<br>
+                <a class="navbar-brand" href="index.html" id="nor_button">PAH2203 Final Year Project Report: Semantic
+                    Understanding in Haze Conditions with Video Data<br>
                     <b style="font-size:medium">Ng Hon Lam 1155143298, CUHK<br>
                         Lam Shi Shing 1155142786, CUHK
+                        Lam Shi Shing 1155142786, CUHK
                 </a>
+
 
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
 
                 <ul class="nav navbar-nav">
                     <li class="nav_button"><a href="index.html">Overview</a></li>
@@ -122,6 +127,10 @@
 
 
     <div class="container">
+        <div style="margin-top:10rem;">
+            <h1 class="text-center mb-4">Experiment &amp; Result</h1>
+        </div>
+
         <div style="margin-top:10rem;">
             <h1 class="text-center mb-4">Experiment &amp; Result</h1>
         </div>
@@ -151,12 +160,26 @@
                             <li class="nav_button"><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                        <ul class="nav navbar-nav">
+                            <li class="nav_button"><a href="#home">Home</a></li>
+                            <li class="nav_button"><a href="#doc_tool">Doc &amp; Tool</a></li>
+                            <li class="nav_button"><a href="#challenges">Challenges</a></li>
+                            <li class="nav_button"><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
         <div class="row">
             <h2 class="p_title" id="experiment">Experiment</h2>
             <p class="p_text">
+                In the experiments, for MOT, UNICORN is used for evaluation, while for MOTS, both pcan and MOTS are used
+                for evaluation. The task are evaluated first using normal dataset, then haze with beta value 0.01, 0.02,
+                0.06 are added to the dataset and evaluated.
+                For the dehazing part, each haze dataset is dehazed using MSBDN, Dehamer, Dehamer indoor and DCP, as
+                proposed in the Hazing&Dehazing section.
                 In the experiments, for MOT, UNICORN is used for evaluation, while for MOTS, both pcan and MOTS are used
                 for evaluation. The task are evaluated first using normal dataset, then haze with beta value 0.01, 0.02,
                 0.06 are added to the dataset and evaluated.
@@ -198,6 +221,36 @@
                 <li style="font-family:'Times New Roman', Times, serif">mIDF1 (mean ID F1 score across all 8
                     categories.)</li>
             </ul>
+            <ul>
+                <li style="font-family:'Times New Roman', Times, serif">MOTA (Multiple Object Segmentation Tracking
+                    Accuracy. It measures the errors from false positives, false negatives and identity switches.)</li>
+                <li style="font-family:'Times New Roman', Times, serif">MOTSA (Similar to MOTA, but it measures
+                    Segmentation instead using mask IoU instead of box iou)</li>
+                <li style="font-family:'Times New Roman', Times, serif">MOTP ( Multiple Object Tracking Precision. It
+                    measures the misalignments between ground-truths and detections.)</li>
+                <li style="font-family:'Times New Roman', Times, serif">MOTSP (Similar to MOTP, but it measures
+                    Segmentation instead using mask IoU instead of box iou)</li>
+                <li style="font-family:'Times New Roman', Times, serif">IDF1 (ID F1 score. The ratio of correctly
+                    identified detections over the average number of ground-truths and detections.)</li>
+            </ul>
+            For MOT, following BDD100K challenge, the following primary evaluation metric are used:
+            <ul>
+                <li style="font-family:'Times New Roman', Times, serif">mMOTA (mean Multiple Object Tracking Accuracy
+                    across all 8 categories.)</li>
+                <li style="font-family:'Times New Roman', Times, serif">mMOTP ( mean Multiple Object Tracking Precision
+                    across all 8 categories.)</li>
+                <li style="font-family:'Times New Roman', Times, serif">mIDF1 (mean ID F1 score across all 8
+                    categories.)</li>
+            </ul>
+            For MOTS, following BDD100K challenge, the following primary evaluation metric are used:
+            <ul>
+                <li style="font-family:'Times New Roman', Times, serif">mMOTSA (mean Multiple Object Segmentation
+                    Tracking Accuracy across all 8 categories.)</li>
+                <li style="font-family:'Times New Roman', Times, serif">mMOTSP ( mean Multiple Object Segmentation
+                    Tracking Precision across all 8 categories.)</li>
+                <li style="font-family:'Times New Roman', Times, serif">mIDF1 (mean ID F1 score across all 8
+                    categories.)</li>
+            </ul>
             </p>
         </div>
         <div class="row">
@@ -209,10 +262,16 @@
                     <h2 class="p_subtitle">Normal Result</h2>
                     <p class="p_text">
                         The following table shows the evaluation results:
+                        The following table shows the evaluation results:
                     </p>
                     <div class="row">
                         <table class="bdd_table">
                             <tr class="bdd_cell">
+                                <th class="bdd_cell">Model</th>
+                                <th class="bdd_cell">Dataset</th>
+                                <th class="bdd_cell">mMOTSA</th>
+                                <th class="bdd_cell">mMOTSP</th>
+                                <th class="bdd_cell">mIDF1</th>
                                 <th class="bdd_cell">Model</th>
                                 <th class="bdd_cell">Dataset</th>
                                 <th class="bdd_cell">mMOTSA</th>
@@ -225,6 +284,11 @@
                                 <td class="bdd_cell">27.8</td>
                                 <td class="bdd_cell">66.9</td>
                                 <td class="bdd_cell">44.9</td>
+                                <td class="bdd_cell">PCAN</td>
+                                <td class="bdd_cell">Normal</td>
+                                <td class="bdd_cell">27.8</td>
+                                <td class="bdd_cell">66.9</td>
+                                <td class="bdd_cell">44.9</td>
                             </tr>
                             <tr class="bdd_cell">
                                 <td class="bdd_cell">UNICORN</td>
@@ -232,6 +296,8 @@
                                 <td class="bdd_cell">28.1</td>
                                 <td class="bdd_cell">67.2</td>
                                 <td class="bdd_cell">44.5</td>
+                            </tr>
+                        </table>
                             </tr>
                         </table>
                     </div>
@@ -249,6 +315,27 @@
                         The bracket after each metrics indicates the difference between it and the normal result of the
                         respective model.
                     </p>
+                    <p class="p_text">
+                        The following shows video demos of MOTS for PCAN in different haze dataset.
+                    </p>
+                    <figure style="float: left;padding-right: 5%;">
+                        <video width="320" height="240" controls>
+                            <source src="./resources/pcan/seg_track/001/b1c9c847-3bda4659_001.mp4" type="video/mp4">
+                        </video>
+                        <figcaption class="img_caption">Video Demo on haze dataset of beta value 0.01</figcaption>
+                    </figure>
+                    <figure style="float: left;padding-right: 5%;">
+                        <video width="320" height="240" controls>
+                            <source src="./resources/pcan/seg_track/002/b1c9c847-3bda4659_002.mp4" type="video/mp4">
+                        </video>
+                        <figcaption class="img_caption">Video Demo on haze dataset of beta value 0.02</figcaption>
+                    </figure>
+                    <figure>
+                        <video width="320" height="240" controls>
+                            <source src="./resources/pcan/seg_track/006/b1c9c847-3bda4659_006.mp4" type="video/mp4">
+                        </video>
+                        <figcaption class="img_caption" style="margin-right: 2.5%;">Video Demo on haze dataset of beta value 0.06</figcaption>
+                    </figure>
                     <div class="row">
                         <table class="bdd_table">
                             <tr class="bdd_cell">
@@ -257,8 +344,21 @@
                                 <th class="bdd_cell">mMOTSA</th>
                                 <th class="bdd_cell">mMOTSP</th>
                                 <th class="bdd_cell">mIDF1</th>
+                                <th class="bdd_cell">Model</th>
+                                <th class="bdd_cell">Dataset</th>
+                                <th class="bdd_cell">mMOTSA</th>
+                                <th class="bdd_cell">mMOTSP</th>
+                                <th class="bdd_cell">mIDF1</th>
                             </tr>
                             <tr class="bdd_cell">
+                                <td class="bdd_cell">PCAN</td>
+                                <td class="bdd_cell">0.01</td>
+                                <td class="bdd_cell">23.0 <div class="negative">(-4.8)</div>
+                                </td>
+                                <td class="bdd_cell">59.5 <div class="negative">(-7.4)</div>
+                                </td>
+                                <td class="bdd_cell">39.7 <div class="negative">(-5.2)</div>
+                                </td>
                                 <td class="bdd_cell">PCAN</td>
                                 <td class="bdd_cell">0.01</td>
                                 <td class="bdd_cell">23.0 <div class="negative">(-4.8)</div>
@@ -277,10 +377,22 @@
                                 </td>
                                 <td class="bdd_cell">37.5 <div class="negative">(-7.4)</div>
                                 </td>
+                                <td class="bdd_cell">22.2 <div class="negative">(-5.6)</div>
+                                </td>
+                                <td class="bdd_cell">59.5 <div class="negative">(-7.4)</div>
+                                </td>
+                                <td class="bdd_cell">37.5 <div class="negative">(-7.4)</div>
+                                </td>
                             </tr>
                             <tr class="bdd_cell">
                                 <td class="bdd_cell">PCAN</td>
                                 <td class="bdd_cell">0.06</td>
+                                <td class="bdd_cell">13.7<div class="negative">&nbsp;(-14.1)</div>
+                                </td>
+                                <td class="bdd_cell">59.1 <div class="negative">(-7.8)</div>
+                                </td>
+                                <td class="bdd_cell">25.7 <div class="negative">&nbsp;(-19.2)</div>
+                                </td>
                                 <td class="bdd_cell">13.7<div class="negative">&nbsp;(-14.1)</div>
                                 </td>
                                 <td class="bdd_cell">59.1 <div class="negative">(-7.8)</div>
@@ -297,10 +409,22 @@
                                 </td>
                                 <td class="bdd_cell">43.4 <div class="negative">(-1.1)</div>
                                 </td>
+                                <td class="bdd_cell">27.2 <div class="negative">(-0.9)</div>
+                                </td>
+                                <td class="bdd_cell">67.4 <div class="positive">&nbsp;(+0.2)</div>
+                                </td>
+                                <td class="bdd_cell">43.4 <div class="negative">(-1.1)</div>
+                                </td>
                             </tr>
                             <tr class="bdd_cell">
                                 <td class="bdd_cell">UNICORN</td>
                                 <td class="bdd_cell">0.02</td>
+                                <td class="bdd_cell">25.1 <div class="negative">(-3.0)</div>
+                                </td>
+                                <td class="bdd_cell">67.4 <div class="positive">&nbsp;(+0.2)</div>
+                                </td>
+                                <td class="bdd_cell">43.4 <div class="negative">(-1.1)</div>
+                                </td>
                                 <td class="bdd_cell">25.1 <div class="negative">(-3.0)</div>
                                 </td>
                                 <td class="bdd_cell">67.4 <div class="positive">&nbsp;(+0.2)</div>
@@ -317,6 +441,12 @@
                                 </td>
                                 <td class="bdd_cell">33.6 <div class="negative">&nbsp;(-10.9)</div>
                                 </td>
+                                <td class="bdd_cell">19.8 <div class="negative">(-8.3)</div>
+                                </td>
+                                <td class="bdd_cell">67.0 <div class="negative">(-0.2)</div>
+                                </td>
+                                <td class="bdd_cell">33.6 <div class="negative">&nbsp;(-10.9)</div>
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -324,12 +454,31 @@
                     <p class="p_text">From above we can see that PCAN and UNICORN peforms worse when there is haze in
                         the datasets. However, the mMOTSP for UNICORN increases in 0.01 and 0.02, which shows the power
                         of the model.<br></p>
+                    <p class="p_text">From above we can see that PCAN and UNICORN peforms worse when there is haze in
+                        the datasets. However, the mMOTSP for UNICORN increases in 0.01 and 0.02, which shows the power
+                        of the model.<br></p>
                     <div class="col-md-6 mb-4">
                         <h2 class="p_subtitle">Comparision</h2>
                         <p class="p_text">The following figures show the performance comparision of each model under
                             different haze dataset:</p>
+                        <p class="p_text">The following figures show the performance comparision of each model under
+                            different haze dataset:</p>
                         <div class="row" style="height: 10%;">
                             <table>
+                                <tr>
+                                    <td>
+                                        <figure>
+                                            <img src="resources/PCAN_haze.png" alt="Example" class="two_img_center">
+                                            <figcaption class="img_caption">Evaluation Result of PCAN</figcaption>
+                                        </figure>
+                                    </td>
+                                    <td>
+                                        <figure>
+                                            <img src="resources/UNICORN_haze.png" alt="Example" class="two_img_center">
+                                            <figcaption class="img_caption">Evaluation Result of UNICORN</figcaption>
+                                        </figure>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td>
                                         <figure>
@@ -350,8 +499,27 @@
                     <p class="p_text">We can see that both PCAN and UNICORN has a performance drop when there is haze in
                         the datasets. However, UNICORN seems to be less affected than PCAN, which is proven further with
                         the following figures.</p>
+                    <p class="p_text">We can see that both PCAN and UNICORN has a performance drop when there is haze in
+                        the datasets. However, UNICORN seems to be less affected than PCAN, which is proven further with
+                        the following figures.</p>
                     <div class="row" style="height: 10%;">
                         <table>
+                            <tr>
+                                <td>
+                                    <figure>
+                                        <img src="resources/PCAN_haze_diff.png" alt="Example" class="two_img_center">
+                                        <figcaption class="img_caption">Difference of evaluation metrics under normal
+                                            dataset of PCAN</figcaption>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <figure>
+                                        <img src="resources/UNICORN_haze_diff.png" alt="Example" class="two_img_center">
+                                        <figcaption class="img_caption">Difference of evaluation metrics under normal
+                                            dataset of UNICORN</figcaption>
+                                    </figure>
+                                </td>
+                            </tr>
                             <tr>
                                 <td>
                                     <figure>
@@ -374,6 +542,338 @@
                         than the baseline PCAN under haze conditions.</p>
                     <div class="col-md-6 mb-4">
                         <h2 class="p_subtitle">Dehazing Result</h2>
+                        <p class="p_text">
+                            The following shows video demos for MOTS in different haze dataset (the best method are shown).
+                        </p>
+                        <figure style="float: left;padding-right: 5%;">
+                            <video width="320" height="240" controls>
+                            <source src="./resources/pcan/seg_track/001_Dehamer/b1c9c847-3bda4659_001_dehamer.mp4" type="video/mp4">
+                            </video>
+                            <figcaption class="img_caption">Dehamer on haze dataset of beta value 0.01</figcaption>
+                        </figure>
+                        <figure style="float: left;padding-right: 5%;">
+                            <video width="320" height="240" controls>
+                            <source src="./resources/pcan/seg_track/002_Single/b1c9c847-3bda4659_002_dcp.mp4" type="video/mp4">
+                            </video>
+                            <figcaption class="img_caption">DCP on haze dataset of beta value 0.02</figcaption>
+                        </figure>
+                        <figure>
+                            <video width="320" height="240" controls>
+                            <source src="./resources/pcan/seg_track/006_Single/b1c9c847-3bda4659_006_dcp.mp4" type="video/mp4">
+                            </video>
+                            <figcaption class="img_caption" style="margin-right: 2.5%;">DCP on haze dataset of beta value 0.06</figcaption>
+                        </figure>
+                        <br>
+                        <p class="p_text">
+                            The tables below shows the evaluation results after applying different dehazing method to the haze dataset. Also, the first bracket after each metrics indicates the difference between it and the result of respective beta value of the respective model, and second bracket indicates
+                            the difference between it and the normal result of the respective model.<br><br>
+                            For example, using PCAN 0.01 MSBDN, the mMOTSA is 25.8, while for PCAN 0.01, the mMOTSA is 23.0 and the normal mMOTSA is 27.8. Then we have 25.8 (25.8-23.0=2.8) (25.8-27.8=-2.0)<br><br>
+                            The best method in each haze dataset is bolded (Considering the quality of the image produced also).
+                        </p>
+                        <div class="col-md-6 mb-4">
+                        <h2 class="p_subtitle">PCAN Result (Click the slider buttons for results in different beta values)</h2>
+                            <div class="row">
+                                <div class="slideshow-container">
+    
+                                    <!-- Full-width images with number and caption text -->
+                                    <div class="mySlides1">
+                                        <figure>
+                                        <table class="bdd_table" style="width:150%">
+                                            <tr class="bdd_cell">
+                                            <th class="bdd_cell" >Model</th>
+                                            <th class="bdd_cell" style="width:25%;">Dataset</th>
+                                            <th class="bdd_cell" style="width:20%;">mMOTSA</th>
+                                            <th class="bdd_cell" style="width:22%;">mMOTSP</th>
+                                            <th class="bdd_cell" style="width:20%;">mIDF1</th>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                            <td class="bdd_cell">PCAN</td>
+                                            <td class="bdd_cell">MSBDN</td>
+                                            <td class="bdd_cell">25.8<div class="negative">(-2.0)</div><div class="positive">(+2.8)</div></td>
+                                            <td class="bdd_cell">66.8<div class="negative">(-0.1)</div><div class="positive">(+7.3)</div></td>
+                                            <td class="bdd_cell">42.6<div class="negative">(-2.3)</div><div class="positive">(+2.9)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell_bold" >
+                                                <td class="bdd_cell_bold">PCAN</td>
+                                                <td class="bdd_cell_bold">Dehamer</td>
+                                                <td class="bdd_cell_bold">25.2<div class="negative">(-2.2)</div><div class="positive">(+2.6)</div></td>
+                                                <td class="bdd_cell_bold">67.3<div class="positive">(+0.4)</div><div class="positive">(+7.8)</div></td>
+                                                <td class="bdd_cell_bold">42.3<div class="negative">(-2.6)</div><div class="positive">(+2.6)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">PCAN</td>
+                                                <td class="bdd_cell">Dehamer indoor</td>
+                                                <td class="bdd_cell">24.1<div class="negative">(-3.7)</div><div class="positive">(+1.1)</div></td>
+                                                <td class="bdd_cell">65.9<div class="negative">(-1.0)</div><div class="positive">(+6.4)</div></td>
+                                                <td class="bdd_cell">41.2<div class="negative">(-3.7)</div><div class="positive">(+1.5)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">PCAN</td>
+                                                <td class="bdd_cell">DCP</td>
+                                                <td class="bdd_cell">25.5<div class="negative">(-2.3)</div><div class="positive">(+2.5)</div></td>
+                                                <td class="bdd_cell">67.1<div class="negative">(-0.2)</div><div class="positive">(+7.6)</div></td>
+                                                <td class="bdd_cell">42.8<div class="negative">(-2.1)</div><div class="positive">(+3.1)</div></td>
+                                            </tr>
+                                        </table>
+                                        <figcaption class="table_caption" style=" position:relative;left:25%">Evaluation Result on dehaze method on haze dataset of beta value 0.01 </figcaption>
+                                        </figure>
+                                    </div>
+                                  
+                                    <div class="mySlides1">
+                                        <figure>
+                                        <table class="bdd_table" style="width:150%">
+                                            <tr class="bdd_cell">
+                                            <th class="bdd_cell" >Model</th>
+                                            <th class="bdd_cell" style="width:25%;">Dataset</th>
+                                            <th class="bdd_cell" style="width:20%;">mMOTSA</th>
+                                            <th class="bdd_cell" style="width:22%;">mMOTSP</th>
+                                            <th class="bdd_cell" style="width:20%;">mIDF1</th>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                            <td class="bdd_cell">PCAN</td>
+                                            <td class="bdd_cell">MSBDN</td>
+                                            <td class="bdd_cell">25.3<div class="negative">(-2.5)</div><div class="positive">(+3.1)</div></td>
+                                            <td class="bdd_cell">67.3<div class="positive">(+0.4)</div><div class="positive">(+7.8)</div></td>
+                                            <td class="bdd_cell">42.4<div class="negative">(-2.5)</div><div class="positive">(+4.9)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">PCAN</td>
+                                                <td class="bdd_cell">Dehamer</td>
+                                                <td class="bdd_cell">24.8<div class="negative">(-3.0)</div><div class="positive">(+2.6)</div></td>
+                                                <td class="bdd_cell">67.1<div class="positive">(+0.2)</div><div class="positive">(+7.6)</div></td>
+                                                <td class="bdd_cell">41.8<div class="negative">(-3.1)</div><div class="positive">(+4.3)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">PCAN</td>
+                                                <td class="bdd_cell">Dehamer indoor</td>
+                                                <td class="bdd_cell">24.6<div class="negative">(-3.2)</div><div class="positive">(+2.4)</div></td>
+                                                <td class="bdd_cell">66.4<div class="negative">(-0.5)</div><div class="positive">(+6.9)</div></td>
+                                                <td class="bdd_cell">41.5<div class="negative">(-3.4)</div><div class="positive">(+4.0)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell_bold">
+                                                <td class="bdd_cell_bold">PCAN</td>
+                                                <td class="bdd_cell_bold">DCP</td>
+                                                <td class="bdd_cell_bold">25.2<div class="negative">(-2.6)</div><div class="positive">(+3.0)</div></td>
+                                                <td class="bdd_cell_bold">67.0<div class="positive">(+0.1)</div><div class="positive">(+7.5)</div></td>
+                                                <td class="bdd_cell_bold">42.5<div class="negative">(-2.4)</div><div class="positive">(+5.0)</div></td>
+                                            </tr>
+                                        </table>
+                                        <figcaption class="table_caption" style=" position:relative;left:25%">Evaluation Result on dehaze method on haze dataset of beta value 0.02 </figcaption>
+                                        </figure>
+                                    </div>
+                                  
+                                    <div class="mySlides1">
+                                        <figure>
+                                        <table class="bdd_table" style="width:150%">
+                                            <tr class="bdd_cell">
+                                            <th class="bdd_cell" >Model</th>
+                                            <th class="bdd_cell" style="width:25%;">Dataset</th>
+                                            <th class="bdd_cell" style="width:20%;">mMOTSA</th>
+                                            <th class="bdd_cell" style="width:20%;">mMOTSP</th>
+                                            <th class="bdd_cell" style="width:22%;">mIDF1</th>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                            <td class="bdd_cell">PCAN</td>
+                                            <td class="bdd_cell">MSBDN</td>
+                                            <td class="bdd_cell">20.8<div class="negative">(-7.0)</div><div class="positive">(+7.1)</div></td>
+                                            <td class="bdd_cell">59.4<div class="negative">(-7.5)</div><div class="positive">(+0.3)</div></td>
+                                            <td class="bdd_cell">35.5<div class="negative">(-9.4)</div><div class="positive">(+9.8)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">PCAN</td>
+                                                <td class="bdd_cell">Dehamer</td>
+                                                <td class="bdd_cell">15.6<div class="negative">(-12.2)</div><div class="positive">(+1.9)</div></td>
+                                                <td class="bdd_cell">59.3<div class="negative">(-7.6)</div><div class="positive">(+0.2)</div></td>
+                                                <td class="bdd_cell">27.4<div class="negative">(-17.5)</div><div class="positive">(+1.7)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">PCAN</td>
+                                                <td class="bdd_cell">Dehamer indoor</td>
+                                                <td class="bdd_cell">22.0<div class="negative">(-5.8)</div><div class="positive">(+8.3)</div></td>
+                                                <td class="bdd_cell">66.5<div class="negative">(-0.4)</div><div class="positive">(+7.4)</div></td>
+                                                <td class="bdd_cell">38.5<div class="negative">(-6.4)</div><div class="positive">(+12.8)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell_bold">
+                                                <td class="bdd_cell_bold">PCAN</td>
+                                                <td class="bdd_cell_bold">DCP</td>
+                                                <td class="bdd_cell_bold">22.4<div class="negative">(-5.4)</div><div class="positive">(+8.7)</div></td>
+                                                <td class="bdd_cell_bold">65.9<div class="negative">(-1.0)</div><div class="positive">(+6.8)</div></td>
+                                                <td class="bdd_cell_bold">37.9<div class="negative">(-7.0)</div><div class="positive">(+12.2)</div></td>
+                                            </tr>
+                                        </table>
+                                        <figcaption class="table_caption" style=" position:relative;left:25%">Evaluation Result on dehaze method on haze dataset of beta value 0.06 </figcaption>
+                                        </figure>
+                                    </div>
+                                  
+                                    <!-- Next and previous buttons -->
+                                    <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+                                    <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <h2 class="p_subtitle">UNICORN Result (Click the slider buttons for results in different beta values)</h2>
+                                <div class="row">
+                                    <div class="slideshow-container">
+    
+                                    <!-- Full-width images with number and caption text -->
+                                    <div class="mySlides2">
+                                        <figure>
+                                        <table class="bdd_table" style="width:150%">
+                                            <tr class="bdd_cell">
+                                                <th class="bdd_cell" >Model</th>
+                                                <th class="bdd_cell" style="width:25%;">Dataset</th>
+                                                <th class="bdd_cell" style="width:20%;">mMOTSA</th>
+                                                <th class="bdd_cell" style="width:22%;">mMOTSP</th>
+                                                <th class="bdd_cell" style="width:20%;">mIDF1</th>
+                                            </tr>
+                                            <tr class="bdd_cell_bold" >
+                                                <td class="bdd_cell_bold">UNICORN</td>
+                                                <td class="bdd_cell_bold">MSBDN</td>
+                                                <td class="bdd_cell_bold">28.1<div class="positive">(+0)</div><div class="positive">(+0.9)</div></td>
+                                                <td class="bdd_cell_bold">67.3<div class="positive">(+0.1)</div><div class="negative">(-0.1)</div></td>
+                                                <td class="bdd_cell_bold">43.9<div class="negative">(-0.6)</div><div class="positive">(+0.5)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">UNICORN</td>
+                                                <td class="bdd_cell">Dehamer</td>
+                                                <td class="bdd_cell">27.6<div class="negative">(-0.5)</div><div class="positive">(+0.4)</div></td>
+                                                <td class="bdd_cell">67.5<div class="positive">(+0.3)</div><div class="positive">(+0.1)</div></td>
+                                                <td class="bdd_cell">43.7<div class="negative">(-0.8)</div><div class="positive">(+0.3)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">UNICORN</td>
+                                                <td class="bdd_cell">Dehamer indoor</td>
+                                                <td class="bdd_cell">25.5<div class="negative">(-2.6)</div><div class="negative">(-1.7)</div></td>
+                                                <td class="bdd_cell">67.2<div class="positive">(+0)</div><div class="negative">(-0.2)</div></td>
+                                                <td class="bdd_cell">40.1<div class="negative">(-4.4)</div><div class="negative">(-3.3)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">UNICORN</td>
+                                                <td class="bdd_cell">DCP</td>
+                                                <td class="bdd_cell">25.3<div class="negative">(-2.8)</div><div class="negative">(-1.9)</div></td>
+                                                <td class="bdd_cell">67.2<div class="positive">(+0)</div><div class="negative">(-0.2)</div></td>
+                                                <td class="bdd_cell">42.9<div class="negative">(-1.6)</div><div class="negative">(-0.5)</div></td>
+                                            </tr>
+                                        </table>
+                                        <figcaption class="table_caption" style=" position:relative;left:25%">Evaluation Result on dehaze method on haze dataset of beta value 0.01 </figcaption>
+                                        </figure>
+                                    </div>
+                                  
+                                    <div class="mySlides2">
+                                        <figure>
+                                        <table class="bdd_table" style="width:150%">
+                                            <tr class="bdd_cell">
+                                                <th class="bdd_cell" >Model</th>
+                                                <th class="bdd_cell" style="width:25%;">Dataset</th>
+                                                <th class="bdd_cell" style="width:20%;">mMOTSA</th>
+                                                <th class="bdd_cell" style="width:22%;">mMOTSP</th>
+                                                <th class="bdd_cell" style="width:20%;">mIDF1</th>
+                                            </tr>
+                                            <tr class="bdd_cell_bold">
+                                                <td class="bdd_cell_bold">UNICORN</td>
+                                                <td class="bdd_cell_bold">MSBDN</td>
+                                                <td class="bdd_cell_bold">27.5<div class="negative">(-0.6)</div><div class="positive">(+2.4)</div></td>
+                                                <td class="bdd_cell_bold">67.4<div class="positive">(+0.2)</div><div class="negative">(-0.1)</div></td>
+                                                <td class="bdd_cell_bold">43.9<div class="negative">(-0.6)</div><div class="positive">(+3.0)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">UNICORN</td>
+                                                <td class="bdd_cell">Dehamer</td>
+                                                <td class="bdd_cell">26.6<div class="negative">(-1.5)</div><div class="positive">(+1.5)</div></td>
+                                                <td class="bdd_cell">67.5<div class="positive">(+0.3)</div><div class="positive">(+0)</div></td>
+                                                <td class="bdd_cell">43.4<div class="negative">(-1.1)</div><div class="positive">(+2.5)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">UNICORN</td>
+                                                <td class="bdd_cell">Dehamer indoor</td>
+                                                <td class="bdd_cell">25.9<div class="negative">(-2.2)</div><div class="positive">(+0.8)</div></td>
+                                                <td class="bdd_cell">67.3<div class="positive">(+0.1)</div><div class="negative">(-0.2)</div></td>
+                                                <td class="bdd_cell">40.2<div class="negative">(-4.3)</div><div class="negative">(-0.7)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">UNICORN</td>
+                                                <td class="bdd_cell">DCP</td>
+                                                <td class="bdd_cell">25.7<div class="negative">(-2.4)</div><div class="positive">(+0.6)</div></td>
+                                                <td class="bdd_cell">67.1<div class="negative">(-0.1)</div><div class="negative">(-0.4)</div></td>
+                                                <td class="bdd_cell">43.7<div class="negative">(-0.8)</div><div class="positive">(+2.8)</div></td>
+                                            </tr>
+                                        </table>
+                                        <figcaption class="table_caption" style=" position:relative;left:25%">Evaluation Result on dehaze method on haze dataset of beta value 0.02 </figcaption>
+                                        </figure>
+                                    </div>
+                                  
+                                    <div class="mySlides2">
+                                        <figure>
+                                        <table class="bdd_table" style="width:150%">
+                                            <tr class="bdd_cell">
+                                                <th class="bdd_cell" >Model</th>
+                                                <th class="bdd_cell" style="width:25%;">Dataset</th>
+                                                <th class="bdd_cell" style="width:20%;">mMOTSA</th>
+                                                <th class="bdd_cell" style="width:22%;">mMOTSP</th>
+                                                <th class="bdd_cell" style="width:20%;">mIDF1</th>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">UNICORN</td>
+                                                <td class="bdd_cell">MSBDN</td>
+                                                <td class="bdd_cell">22.6<div class="negative">(-5.5)</div><div class="positive">(+2.8)</div></td>
+                                                <td class="bdd_cell">67.1<div class="negative">(-0.1)</div><div class="positive">(+0.1)</div></td>
+                                                <td class="bdd_cell">38.8<div class="negative">(-5.7)</div><div class="positive">(+5.2)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">UNICORN</td>
+                                                <td class="bdd_cell">Dehamer</td>
+                                                <td class="bdd_cell">19.5<div class="negative">(-8.6)</div><div class="negative">(-0.3)</div></td>
+                                                <td class="bdd_cell">66.9<div class="negative">(-0.3)</div><div class="negative">(-0.1)</div></td>
+                                                <td class="bdd_cell">33.4<div class="negative">(-11.1)</div><div class="negative">(-0.2)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell">
+                                                <td class="bdd_cell">UNICORN</td>
+                                                <td class="bdd_cell">Dehamer indoor</td>
+                                                <td class="bdd_cell">25.0<div class="negative">(-3.1)</div><div class="positive">(+5.2)</div></td>
+                                                <td class="bdd_cell">67.3<div class="positive">(+0.1)</div><div class="positive">(+0.3)</div></td>
+                                                <td class="bdd_cell">39.6<div class="negative">(-4.9)</div><div class="positive">(+6.0)</div></td>
+                                            </tr>
+                                            <tr class="bdd_cell_bold">
+                                                <td class="bdd_cell_bold">UNICORN</td>
+                                                <td class="bdd_cell_bold">DCP</td>
+                                                <td class="bdd_cell_bold">23.8<div class="negative">(-4.3)</div><div class="positive">(+4.0)</div></td>
+                                                <td class="bdd_cell_bold">67.6<div class="positive">(+0.4)</div><div class="positive">(+0.6)</div></td>
+                                                <td class="bdd_cell_bold">41.3<div class="negative">(-3.2)</div><div class="positive">(+7.7)</div></td>
+                                            </tr>
+                                        </table>
+                                        <figcaption class="table_caption" style=" position:relative;left:25%">Evaluation Result on dehaze method on haze dataset of beta value 0.06 </figcaption>
+                                        </figure>
+                                        </div>
+                                  
+                                    <!-- Next and previous buttons -->
+                                    <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+                                    <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <script>
+                                let slideIndex = [1,1];
+                                let slideId = ["mySlides1", "mySlides2"]
+                                showSlides(1, 0);
+                                showSlides(1, 1);
+                                
+                                function plusSlides(n, no) {
+                                  showSlides(slideIndex[no] += n, no);
+                                }
+                                
+                                function showSlides(n, no) {
+                                  let i;
+                                  let x = document.getElementsByClassName(slideId[no]);
+                                  if (n > x.length) {slideIndex[no] = 1}    
+                                  if (n < 1) {slideIndex[no] = x.length}
+                                  for (i = 0; i < x.length; i++) {
+                                     x[i].style.display = "none";  
+                                  }
+                                  x[slideIndex[no]-1].style.display = "block";  
+                                }
+                            </script>
+                        </div>
                     </div>
                 </div>
             </div>
