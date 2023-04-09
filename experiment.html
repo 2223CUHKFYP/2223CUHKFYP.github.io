@@ -98,8 +98,6 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.html" id="nor_button">PAH2203 Final Year Project Report: Semantic
                     Understanding in Haze Conditions with Video Data<br>
-                <a class="navbar-brand" href="index.html" id="nor_button">PAH2203 Final Year Project Report: Semantic
-                    Understanding in Haze Conditions with Video Data<br>
                     <b style="font-size:medium">Ng Hon Lam 1155143298, CUHK<br>
                         Lam Shi Shing 1155142786, CUHK
                         Lam Shi Shing 1155142786, CUHK
@@ -131,9 +129,6 @@
             <h1 class="text-center mb-4">Experiment &amp; Result</h1>
         </div>
 
-        <div style="margin-top:10rem;">
-            <h1 class="text-center mb-4">Experiment &amp; Result</h1>
-        </div>
 
         <!-- Navigation Bar -->
         <nav class="navbar navbar-default">
@@ -160,26 +155,12 @@
                             <li class="nav_button"><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                        <ul class="nav navbar-nav">
-                            <li class="nav_button"><a href="#home">Home</a></li>
-                            <li class="nav_button"><a href="#doc_tool">Doc &amp; Tool</a></li>
-                            <li class="nav_button"><a href="#challenges">Challenges</a></li>
-                            <li class="nav_button"><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
         <div class="row">
             <h2 class="p_title" id="experiment">Experiment</h2>
             <p class="p_text">
-                In the experiments, for MOT, UNICORN is used for evaluation, while for MOTS, both pcan and MOTS are used
-                for evaluation. The task are evaluated first using normal dataset, then haze with beta value 0.01, 0.02,
-                0.06 are added to the dataset and evaluated.
-                For the dehazing part, each haze dataset is dehazed using MSBDN, Dehamer, Dehamer indoor and DCP, as
-                proposed in the Hazing&Dehazing section.
                 In the experiments, for MOT, UNICORN is used for evaluation, while for MOTS, both pcan and MOTS are used
                 for evaluation. The task are evaluated first using normal dataset, then haze with beta value 0.01, 0.02,
                 0.06 are added to the dataset and evaluated.
@@ -221,37 +202,7 @@
                 <li style="font-family:'Times New Roman', Times, serif">mIDF1 (mean ID F1 score across all 8
                     categories.)</li>
             </ul>
-            <ul>
-                <li style="font-family:'Times New Roman', Times, serif">MOTA (Multiple Object Segmentation Tracking
-                    Accuracy. It measures the errors from false positives, false negatives and identity switches.)</li>
-                <li style="font-family:'Times New Roman', Times, serif">MOTSA (Similar to MOTA, but it measures
-                    Segmentation instead using mask IoU instead of box iou)</li>
-                <li style="font-family:'Times New Roman', Times, serif">MOTP ( Multiple Object Tracking Precision. It
-                    measures the misalignments between ground-truths and detections.)</li>
-                <li style="font-family:'Times New Roman', Times, serif">MOTSP (Similar to MOTP, but it measures
-                    Segmentation instead using mask IoU instead of box iou)</li>
-                <li style="font-family:'Times New Roman', Times, serif">IDF1 (ID F1 score. The ratio of correctly
-                    identified detections over the average number of ground-truths and detections.)</li>
-            </ul>
-            For MOT, following BDD100K challenge, the following primary evaluation metric are used:
-            <ul>
-                <li style="font-family:'Times New Roman', Times, serif">mMOTA (mean Multiple Object Tracking Accuracy
-                    across all 8 categories.)</li>
-                <li style="font-family:'Times New Roman', Times, serif">mMOTP ( mean Multiple Object Tracking Precision
-                    across all 8 categories.)</li>
-                <li style="font-family:'Times New Roman', Times, serif">mIDF1 (mean ID F1 score across all 8
-                    categories.)</li>
-            </ul>
-            For MOTS, following BDD100K challenge, the following primary evaluation metric are used:
-            <ul>
-                <li style="font-family:'Times New Roman', Times, serif">mMOTSA (mean Multiple Object Segmentation
-                    Tracking Accuracy across all 8 categories.)</li>
-                <li style="font-family:'Times New Roman', Times, serif">mMOTSP ( mean Multiple Object Segmentation
-                    Tracking Precision across all 8 categories.)</li>
-                <li style="font-family:'Times New Roman', Times, serif">mIDF1 (mean ID F1 score across all 8
-                    categories.)</li>
-            </ul>
-            </p>
+            
         </div>
         <div class="row">
             <h2 class="p_title" id="result">Result</h2>
@@ -262,7 +213,6 @@
                     <h2 class="p_subtitle">Normal Result</h2>
                     <p class="p_text">
                         The following table shows the evaluation results:
-                        The following table shows the evaluation results:
                     </p>
                     <div class="row">
                         <table class="bdd_table">
@@ -272,18 +222,8 @@
                                 <th class="bdd_cell">mMOTSA</th>
                                 <th class="bdd_cell">mMOTSP</th>
                                 <th class="bdd_cell">mIDF1</th>
-                                <th class="bdd_cell">Model</th>
-                                <th class="bdd_cell">Dataset</th>
-                                <th class="bdd_cell">mMOTSA</th>
-                                <th class="bdd_cell">mMOTSP</th>
-                                <th class="bdd_cell">mIDF1</th>
                             </tr>
                             <tr class="bdd_cell">
-                                <td class="bdd_cell">PCAN</td>
-                                <td class="bdd_cell">Normal</td>
-                                <td class="bdd_cell">27.8</td>
-                                <td class="bdd_cell">66.9</td>
-                                <td class="bdd_cell">44.9</td>
                                 <td class="bdd_cell">PCAN</td>
                                 <td class="bdd_cell">Normal</td>
                                 <td class="bdd_cell">27.8</td>
@@ -344,21 +284,8 @@
                                 <th class="bdd_cell">mMOTSA</th>
                                 <th class="bdd_cell">mMOTSP</th>
                                 <th class="bdd_cell">mIDF1</th>
-                                <th class="bdd_cell">Model</th>
-                                <th class="bdd_cell">Dataset</th>
-                                <th class="bdd_cell">mMOTSA</th>
-                                <th class="bdd_cell">mMOTSP</th>
-                                <th class="bdd_cell">mIDF1</th>
                             </tr>
                             <tr class="bdd_cell">
-                                <td class="bdd_cell">PCAN</td>
-                                <td class="bdd_cell">0.01</td>
-                                <td class="bdd_cell">23.0 <div class="negative">(-4.8)</div>
-                                </td>
-                                <td class="bdd_cell">59.5 <div class="negative">(-7.4)</div>
-                                </td>
-                                <td class="bdd_cell">39.7 <div class="negative">(-5.2)</div>
-                                </td>
                                 <td class="bdd_cell">PCAN</td>
                                 <td class="bdd_cell">0.01</td>
                                 <td class="bdd_cell">23.0 <div class="negative">(-4.8)</div>
@@ -377,22 +304,10 @@
                                 </td>
                                 <td class="bdd_cell">37.5 <div class="negative">(-7.4)</div>
                                 </td>
-                                <td class="bdd_cell">22.2 <div class="negative">(-5.6)</div>
-                                </td>
-                                <td class="bdd_cell">59.5 <div class="negative">(-7.4)</div>
-                                </td>
-                                <td class="bdd_cell">37.5 <div class="negative">(-7.4)</div>
-                                </td>
                             </tr>
                             <tr class="bdd_cell">
                                 <td class="bdd_cell">PCAN</td>
                                 <td class="bdd_cell">0.06</td>
-                                <td class="bdd_cell">13.7<div class="negative">&nbsp;(-14.1)</div>
-                                </td>
-                                <td class="bdd_cell">59.1 <div class="negative">(-7.8)</div>
-                                </td>
-                                <td class="bdd_cell">25.7 <div class="negative">&nbsp;(-19.2)</div>
-                                </td>
                                 <td class="bdd_cell">13.7<div class="negative">&nbsp;(-14.1)</div>
                                 </td>
                                 <td class="bdd_cell">59.1 <div class="negative">(-7.8)</div>
@@ -409,12 +324,6 @@
                                 </td>
                                 <td class="bdd_cell">43.4 <div class="negative">(-1.1)</div>
                                 </td>
-                                <td class="bdd_cell">27.2 <div class="negative">(-0.9)</div>
-                                </td>
-                                <td class="bdd_cell">67.4 <div class="positive">&nbsp;(+0.2)</div>
-                                </td>
-                                <td class="bdd_cell">43.4 <div class="negative">(-1.1)</div>
-                                </td>
                             </tr>
                             <tr class="bdd_cell">
                                 <td class="bdd_cell">UNICORN</td>
@@ -425,22 +334,10 @@
                                 </td>
                                 <td class="bdd_cell">43.4 <div class="negative">(-1.1)</div>
                                 </td>
-                                <td class="bdd_cell">25.1 <div class="negative">(-3.0)</div>
-                                </td>
-                                <td class="bdd_cell">67.4 <div class="positive">&nbsp;(+0.2)</div>
-                                </td>
-                                <td class="bdd_cell">43.4 <div class="negative">(-1.1)</div>
-                                </td>
                             </tr>
                             <tr class="bdd_cell">
                                 <td class="bdd_cell">UNICORN</td>
                                 <td class="bdd_cell">0.06</td>
-                                <td class="bdd_cell">19.8 <div class="negative">(-8.3)</div>
-                                </td>
-                                <td class="bdd_cell">67.0 <div class="negative">(-0.2)</div>
-                                </td>
-                                <td class="bdd_cell">33.6 <div class="negative">&nbsp;(-10.9)</div>
-                                </td>
                                 <td class="bdd_cell">19.8 <div class="negative">(-8.3)</div>
                                 </td>
                                 <td class="bdd_cell">67.0 <div class="negative">(-0.2)</div>
@@ -454,31 +351,12 @@
                     <p class="p_text">From above we can see that PCAN and UNICORN peforms worse when there is haze in
                         the datasets. However, the mMOTSP for UNICORN increases in 0.01 and 0.02, which shows the power
                         of the model.<br></p>
-                    <p class="p_text">From above we can see that PCAN and UNICORN peforms worse when there is haze in
-                        the datasets. However, the mMOTSP for UNICORN increases in 0.01 and 0.02, which shows the power
-                        of the model.<br></p>
                     <div class="col-md-6 mb-4">
                         <h2 class="p_subtitle">Comparision</h2>
                         <p class="p_text">The following figures show the performance comparision of each model under
                             different haze dataset:</p>
-                        <p class="p_text">The following figures show the performance comparision of each model under
-                            different haze dataset:</p>
                         <div class="row" style="height: 10%;">
                             <table>
-                                <tr>
-                                    <td>
-                                        <figure>
-                                            <img src="resources/PCAN_haze.png" alt="Example" class="two_img_center">
-                                            <figcaption class="img_caption">Evaluation Result of PCAN</figcaption>
-                                        </figure>
-                                    </td>
-                                    <td>
-                                        <figure>
-                                            <img src="resources/UNICORN_haze.png" alt="Example" class="two_img_center">
-                                            <figcaption class="img_caption">Evaluation Result of UNICORN</figcaption>
-                                        </figure>
-                                    </td>
-                                </tr>
                                 <tr>
                                     <td>
                                         <figure>
@@ -499,27 +377,8 @@
                     <p class="p_text">We can see that both PCAN and UNICORN has a performance drop when there is haze in
                         the datasets. However, UNICORN seems to be less affected than PCAN, which is proven further with
                         the following figures.</p>
-                    <p class="p_text">We can see that both PCAN and UNICORN has a performance drop when there is haze in
-                        the datasets. However, UNICORN seems to be less affected than PCAN, which is proven further with
-                        the following figures.</p>
                     <div class="row" style="height: 10%;">
                         <table>
-                            <tr>
-                                <td>
-                                    <figure>
-                                        <img src="resources/PCAN_haze_diff.png" alt="Example" class="two_img_center">
-                                        <figcaption class="img_caption">Difference of evaluation metrics under normal
-                                            dataset of PCAN</figcaption>
-                                    </figure>
-                                </td>
-                                <td>
-                                    <figure>
-                                        <img src="resources/UNICORN_haze_diff.png" alt="Example" class="two_img_center">
-                                        <figcaption class="img_caption">Difference of evaluation metrics under normal
-                                            dataset of UNICORN</figcaption>
-                                    </figure>
-                                </td>
-                            </tr>
                             <tr>
                                 <td>
                                     <figure>
