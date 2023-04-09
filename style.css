@@ -161,8 +161,7 @@ body {
 }
 
 * {box-sizing: border-box}
-.mySlides1, .mySlides2 {display: none}
-img {vertical-align: middle;}
+.mySlides1, .mySlides2, .mySlides3 {display: none}
 
 /* Slideshow container */
 .slideshow-container {
