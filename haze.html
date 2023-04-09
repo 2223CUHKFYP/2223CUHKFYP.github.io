@@ -418,45 +418,86 @@
                         </div>
                     </div>
                 </div>
+                <h2>SSIM Results for Dehazing Techniques</h2>
+                <p>
+                    The following table shows the SSIM results for the dehazing techniques. This results highlight the
+                    performance of the dehazing techniques.
+                </p>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Dehazing Techniques</th>
+                            <th>0.01</th>
+                            <th>0.02</th>
+                            <th>0.06</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MSBDN</td>
+                            <td>0.999</td>
+                            <td>0.999</td>
+                            <td>0.999</td>
+                        </tr>
+                        <tr>
+                            <td>DehazeNet</td>
+                            <td>0.999</td>
+                            <td>0.999</td>
+                            <td>0.999</td>
+                        </tr>
+                        <tr>
+                            <td>DehazeNet_indoor</td>
+                            <td>0.999</td>
+                            <td>0.999</td>
+                            <td>0.999</td>
+                        </tr>
+                        <tr>
+                            <td>DCP</td>
+                            <td>0.999</td>
+                            <td>0.999</td>
+                            <td>0.999</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
             </div>
-
         </div>
-    </div>
 
 
 
-    <!-- jQuery and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- jQuery and Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- image compare -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/jquery.twentytwenty.js"></script>
-    <script src="js/jquery.event.move.js"></script>
-    <script>
-        $(".demo").twentytwenty({
+        <!-- image compare -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="js/jquery.twentytwenty.js"></script>
+        <script src="js/jquery.event.move.js"></script>
+        <script>
+            $(".demo").twentytwenty({
 
-            //  How much of the before image is visible when the page loads
-            default_offset_pct: 0.5,
+                //  How much of the before image is visible when the page loads
+                default_offset_pct: 0.5,
 
-            // or vertical
-            orientation: 'horizontal',
+                // or vertical
+                orientation: 'horizontal',
 
-            // label text
-            before_label: 'Before',
-            after_label: 'After',
+                // label text
+                before_label: 'Before',
+                after_label: 'After',
 
-            // enable/disable overlay
-            no_overlay: false,
+                // enable/disable overlay
+                no_overlay: false,
 
-            // move with handle
-            move_with_handle_only: true,
+                // move with handle
+                move_with_handle_only: true,
 
-            // click to move
-            click_to_move: false
+                // click to move
+                click_to_move: false
 
-        });  
-    </script>
+            });  
+        </script>
 </body>
 
 </html>
