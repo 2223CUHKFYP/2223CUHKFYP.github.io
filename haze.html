@@ -211,29 +211,17 @@
                     using four distinct beta values (0.05, 0.01, 0.02, 0.06).
                 </p>
 
-                <h3>Dehazing</h3>
-                <p>After generating the hazy images, we apply the dehazing techniques to the hazy images to restore the
-                    original image quality. The dehazing techniques considered in this study include MSBDN, DehazeNet,
-                    DehazeNet_indoor, and DCP. These techniques are designed to remove the haze and improve the
-                    visibility of the underlying scene.</p>
-                <p>To evaluate the performance of the dehazing techniques, we use the SSIM metric to compare the
-                    dehazed images with the original, clear images from the BDD100K dataset. A higher SSIM value
-                    indicates better dehazing performance, as it suggests that the processed image is more similar to the
-                    original image in terms of structure, contrast, and luminance. This metric allows for a quantitative
-                    assessment of the dehazing techniques' efficiency and effectiveness in restoring image quality under
-                    various haze conditions.</p>
-                
-
-            </div>
-        </div>
-        <div class="row">
-
-            <div class="col-md-6 mb-4">
-                <h2>Results</h2>
                 <p>This is some Demo of the Haze Generation by using TCMonoDepth for Video Depth Estimation and
                     SeeingThroughFog for Haze Generation</p>
-                <div class="hazingImageCompare">
 
+                <p>
+                    We generate a realistic and diverse set of hazy images that closely resemble real-world haze
+                    conditions by using TCMonoDepth for depth estimation and SeeingThroughFog for haze generation.
+                    The
+                    different beta values allow us to test the robustness of the dehazing techniques under different
+                    haze densities, providing a thorough evaluation of their performance.
+                </p>
+                <div class="hazingImageCompare">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="demo">
@@ -268,55 +256,207 @@
                     </div>
                 </div>
 
-                </br>
-                <p>
-                    We generate a realistic and diverse set of hazy images that closely resemble real-world haze
-                    conditions by using TCMonoDepth for depth estimation and SeeingThroughFog for haze generation.
-                    The
-                    different beta values allow us to test the robustness of the dehazing techniques under different
-                    haze densities, providing a thorough evaluation of their performance.
-                </p>
+                <h3>Dehazing</h3>
+                <p>After generating the hazy images, we apply the dehazing techniques to the hazy images to restore the
+                    original image quality. The dehazing techniques considered in this study include MSBDN, DehazeNet,
+                    DehazeNet_indoor, and DCP. These techniques are designed to remove the haze and improve the
+                    visibility of the underlying scene.</p>
+                <p>To evaluate the performance of the dehazing techniques, we use the SSIM metric to compare the
+                    dehazed images with the original, clear images from the BDD100K dataset. A higher SSIM value
+                    indicates better dehazing performance, as it suggests that the processed image is more similar to
+                    the
+                    original image in terms of structure, contrast, and luminance. This metric allows for a quantitative
+                    assessment of the dehazing techniques' efficiency and effectiveness in restoring image quality under
+                    various haze conditions.</p>
+
 
             </div>
+        </div>
+        <div class="row">
 
+            <div class="col-md-6 mb-4">
+                <h2>Results</h2>
+                <p>After generating the hazy images, we apply the dehazing techniques to the hazy images to restore the
+                    original image quality. The dehazing techniques considered in this study include MSBDN, DehazeNet,
+                    DehazeNet_indoor, and DCP. These techniques are designed to remove the haze and improve the
+                    visibility of the underlying scene.</p>
+                <br />
+                <div class="dehazingImagePreview">
+                    <p>Hazing Image</p>
+                    <div class="hazingImage">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/hazingImage/hazing001ImageForBDD100K.jpg" />
+                                </div>
+                                0.01
+                            </div>
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/hazingImage/hazing002ImageForBDD100K.jpg" />
+                                </div>
+                                0.02
+                            </div>
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/hazingImage/hazing006ImageForBDD100K.jpg" />
+                                </div>
+                                0.06
+                            </div>
+                        </div>
 
+                    </div>
+
+                    <p>MSBDN</p>
+                    <div class="hazingImageCompare">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/dehazingImage/MSBDN/001.jpg" />
+                                </div>
+                                0.01
+                            </div>
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/dehazingImage/MSBDN/002.jpg" />
+                                </div>
+                                0.02
+                            </div>
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/dehazingImage/MSBDN/006.jpg" />
+                                </div>
+                                0.06
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>DehazeNet</p>
+                    <div class="hazingImageCompare">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/dehazingImage/DehazeNet/001.jpg" />
+                                </div>
+                                0.01
+                            </div>
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/dehazingImage/DehazeNet/002.jpg" />
+                                </div>
+                                0.02
+                            </div>
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/dehazingImage/DehazeNet/006.jpg" />
+                                </div>
+                                0.06
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>DehazeNet_indoor</p>
+                    <div class="hazingImageCompare">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/dehazingImage/DehazeNet_indoor/001.jpg" />
+                                </div>
+                                0.01
+                            </div>
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/dehazingImage/DehazeNet_indoor/002.jpg" />
+                                </div>
+                                0.02
+                            </div>
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/dehazingImage/DehazeNet_indoor/006.jpg" />
+                                </div>
+                                0.06
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>DCP</p>
+                    <div class="hazingImageCompare">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/dehazingImage/DCP/001.jpg" />
+                                </div>
+                                0.01
+                            </div>
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/dehazingImage/DCP/002.jpg" />
+                                </div>
+                                0.02
+                            </div>
+                            <div class="col-md-4">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/dehazingImage/DCP/006.jpg" />
+                                </div>
+                                0.06
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
+    </div>
 
 
 
-        <!-- jQuery and Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <!-- image compare -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="js/jquery.twentytwenty.js"></script>
-        <script src="js/jquery.event.move.js"></script>
-        <script>
-            $(".demo").twentytwenty({
+    <!-- image compare -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/jquery.twentytwenty.js"></script>
+    <script src="js/jquery.event.move.js"></script>
+    <script>
+        $(".demo").twentytwenty({
 
-                //  How much of the before image is visible when the page loads
-                default_offset_pct: 0.5,
+            //  How much of the before image is visible when the page loads
+            default_offset_pct: 0.5,
 
-                // or vertical
-                orientation: 'horizontal',
+            // or vertical
+            orientation: 'horizontal',
 
-                // label text
-                before_label: 'Before',
-                after_label: 'After',
+            // label text
+            before_label: 'Before',
+            after_label: 'After',
 
-                // enable/disable overlay
-                no_overlay: false,
+            // enable/disable overlay
+            no_overlay: false,
 
-                // move with handle
-                move_with_handle_only: true,
+            // move with handle
+            move_with_handle_only: true,
 
-                // click to move
-                click_to_move: false
+            // click to move
+            click_to_move: false
 
-            });  
-        </script>
+        });  
+    </script>
 </body>
 
 </html>
