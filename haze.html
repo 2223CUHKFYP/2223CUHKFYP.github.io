@@ -186,8 +186,35 @@
                 </ul>
 
                 <h3>TCMonoDepth for Depth Estimation</h3>
+                <p>The first step in simulating haze conditions for images and videos is to estimate the depth of the
+                    scene. TCMonoDepth is a method for stable depth estimation for any video.</p>
 
+                <p>In this study, TCMonoDepth is employed to estimate depth information from the images extracted from
+                    the BDD100K dataset. These depth maps are then used in conjunction with SeeingThroughFog to generate
+                    haze conditions with varying densities, controlled by adjusting the beta parameter.</p>
+
+                <p>By using TCMonoDepth for depth estimation, we ensure that the synthetic haze generation process is
+                    more realistic, as it accounts for the spatial distribution of objects in the scene. This approach
+                    allows for a more accurate evaluation of the dehazing techniques' performance when applied to video
+                    data affected by haze conditions.
+                </p>
+
+                <h3>SeeingThroughFog for generate the haze</h3>
+                <p>The second step in simulating haze conditions for images and videos is to generate the haze based on
+                    the estimated depth. SeeingThroughFog is a method for generating synthetic haze in images and
+                    videos.</p>
+
+                <p>In this study, SeeingThroughFog is used in conjunction with TCMonoDepth to generate hazy images from
+                    the BDD100K dataset using various beta values (0.05, 0.01, 0.02, 0.06). These hazy images are then
+                    processed using different dehazing techniques, and their performance is evaluated using the
+                    Structural Similarity Index Measure (SSIM). </p>
             </div>
+
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <h2>Methodology</h2>
+
 
         </div>
         <div class="row" id="doc_tool">
