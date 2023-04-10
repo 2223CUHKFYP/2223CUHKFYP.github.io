@@ -605,6 +605,51 @@
                 <h2>Performance Analysis</h2>
 
                 <ul>
+                    <li>PSNR</li>
+                    <ul>
+                        <li>MSBDN exhibits the highest PSNR values for beta values of 0.01 and 0.02, which aligns with
+                            its superior SSIM performance for these haze densities. However, its PSNR score
+                            significantly drops at a beta value of 0.06, further indicating its struggle with severe
+                            haze conditions.
+                        </li>
+                        <li>DehazeNet_indoor shows a consistent performance across all beta values, with slightly lower
+                            PSNR scores than MSBDN for 0.01 and 0.02, but outperforming MSBDN at the 0.06 haze density.
+                        </li>
+                        <li>DCP has the lowest PSNR values for 0.01 and 0.02 beta values but exhibits a more stable
+                            performance across different haze densities. At a beta value of 0.06, it performs better
+                            than MSBDN in terms of PSNR.
+                        </li>
+                    </ul>
+                    <li>SSIM</li>
+                    <ul>
+                        <li>MSBDN achieves the highest SSIM scores for both 0.01 and 0.02 beta values, indicating its
+                            superior performance in removing haze and preserving image details at these haze densities.
+                        </li>
+
+                        <li>However, at a beta value of 0.06, MSBDN's performance significantly decreases, while
+                            DehazeNet_indoor and DCP exhibit better SSIM scores. This suggests that MSBDN might struggle
+                            in handling more severe haze conditions.
+                        </li>
+                        <li>
+                            DehazeNet_indoor performs consistently across all beta values, achieving slightly lower SSIM
+                            scores compared to MSBDN for 0.01 and 0.02 but outperforming MSBDN at the highest haze
+                            density (0.06).
+                        </li>
+                        <li>
+                            DCP exhibits the lowest SSIM scores for 0.01 and 0.02 beta values but shows a more
+                            consistent performance across varying haze densities, performing better than MSBDN at 0.06.
+                        </li>
+                    </ul>
+                </ul>
+                <p>In conclusion, MSBDN shows the best performance in terms of SSIM and PSNR for lower haze densities
+                    (beta values of 0.01 and 0.02), but struggles with severe haze conditions (beta value of 0.06).
+                    DehazeNet_indoor demonstrates a more consistent performance across all haze densities, with slightly
+                    lower scores than MSBDN for lower haze densities but outperforming it at the highest haze density.
+                    DCP, though exhibiting the lowest performance for lower haze densities, presents a more stable
+                    performance across varying haze densities, surpassing MSBDN at the highest haze density.</p>
+
+
+                <!-- <ul>
                     <li>MSBDN :</li>
                     <p>MSBDN demonstrates the best performance among the dehazing techniques, achieving the highest SSIM
                         scores (0.93, 0.92, and 0.68) and PSNR values (28.34 dB and 25.60 dB) for beta 0.01 and 0.02.
@@ -653,7 +698,7 @@
                     haze densities, and DCP maintains relatively stable SSIM scores, although it struggles with image
                     quality as indicated by the lower PSNR values. Understanding these differences can help guide the
                     selection of an appropriate dehazing technique for a specific application or scenario.
-                </p>
+                </p> -->
 
                 <hr />
 
@@ -687,48 +732,6 @@
 
                     </div>
                 </div>
-                <!-- <ul>
-                    <li>PSNR</li>
-                    <ul>
-                        <li>MSBDN  exhibits the highest PSNR values for beta values of 0.01 and 0.02, which aligns with
-                            its superior SSIM performance for these haze densities. However, its PSNR score
-                            significantly drops at a beta value of 0.06, further indicating its struggle with severe
-                            haze conditions.
-                        </li>
-                        <li>Dehamer_indoor shows a consistent performance across all beta values, with slightly lower
-                            PSNR scores than MSBDN  for 0.01 and 0.02, but outperforming MSBDN  at the 0.06 haze density.
-                        </li>
-                        <li>DCP has the lowest PSNR values for 0.01 and 0.02 beta values but exhibits a more stable
-                            performance across different haze densities. At a beta value of 0.06, it performs better
-                            than MSBDN  in terms of PSNR.
-                        </li>
-                    </ul>
-                    <li>SSIM</li>
-                    <ul>
-                        <li>MSBDN  achieves the highest SSIM scores for both 0.01 and 0.02 beta values, indicating its
-                            superior performance in removing haze and preserving image details at these haze densities.
-                        </li>
-                        <li>However, at a beta value of 0.06, MSBDN 's performance significantly decreases, while
-                            Dehamer_indoor and DCP exhibit better SSIM scores. This suggests that MSBDN  might struggle
-                            in handling more severe haze conditions.
-                        </li>
-                        <li>
-                            Dehamer_indoor performs consistently across all beta values, achieving slightly lower SSIM
-                            scores compared to MSBDN  for 0.01 and 0.02 but outperforming MSBDN  at the highest haze
-                            density (0.06).
-                        </li>
-                        <li>
-                            DCP exhibits the lowest SSIM scores for 0.01 and 0.02 beta values but shows a more
-                            consistent performance across varying haze densities, performing better than MSBDN  at 0.06.
-                        </li>
-                    </ul>
-                </ul>
-                <p>In conclusion, MSBDN  shows the best performance in terms of SSIM and PSNR for lower haze densities
-                    (beta values of 0.01 and 0.02), but struggles with severe haze conditions (beta value of 0.06).
-                    Dehamer_indoor demonstrates a more consistent performance across all haze densities, with slightly
-                    lower scores than MSBDN  for lower haze densities but outperforming it at the highest haze density.
-                    DCP, though exhibiting the lowest performance for lower haze densities, presents a more stable
-                    performance across varying haze densities, surpassing MSBDN  at the highest haze density.</p> -->
 
 
             </div>
