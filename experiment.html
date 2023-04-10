@@ -589,7 +589,7 @@
                     <div class="col-md-6 mb-4">
                         <h2 class="p_subtitle">Dehazing Result</h2>
                         <p class="p_text">
-                            The following shows video demos for MOTS in different haze dataset (the best method are shown).
+                            The following shows video demos for MOTS in different haze dataset.
                         </p>
                         <figure style="float: left;padding-right: 5%;">
                             <video width="320" height="240" controls>
@@ -780,8 +780,8 @@
                                         </div>
                                   
                                     <!-- Next and previous buttons -->
-                                    <a class="prev" onclick="plusSlides(-1, 3)">&#10094;</a>
-                                    <a class="next" onclick="plusSlides(1, 3)">&#10095;</a>
+                                    <a class="prev" onclick="plusSlides(-1, 4)">&#10094;</a>
+                                    <a class="next" onclick="plusSlides(1, 4)">&#10095;</a>
                                     </div>
                                 </div>
                             </div>
@@ -921,8 +921,8 @@
                                         </div>
                                   
                                     <!-- Next and previous buttons -->
-                                    <a class="prev" onclick="plusSlides(-1, 4)">&#10094;</a>
-                                    <a class="next" onclick="plusSlides(1, 4)">&#10095;</a>
+                                    <a class="prev" onclick="plusSlides(-1, 3)">&#10094;</a>
+                                    <a class="next" onclick="plusSlides(1, 3)">&#10095;</a>
                                     </div>
                                     <div class="slideshow-container">
     
@@ -961,8 +961,8 @@
                                 showSlides(1, 0);
                                 showSlides(1, 1);
                                 showSlides(1, 2);
-                                showSlides(1, 3);
-                                showSlides(1, 4)
+                                showSlides(0, 3);
+                                showSlides(0, 4)
                                 showSlides(1, 5);
                                 showSlides(1, 6);
                                 
@@ -1004,8 +1004,8 @@
                                 These result matches the metrics measured in the Hazing&Dehazing part. 
                                 <br><br>
                                 As a result, in MOT task, Dehamer indoor should be used for dehazing, it can even be considered to preprocess the data in the normal dataset to improve performance.
-                                Furthermore. in MOTS task, for minor or intermediate haze, MSBDN should be used in dehazing to improve the performance in semantic understanding tasks.
-                                In addition, for serious haze, DCP should be used instead.
+                                Furthermore. in MOTS task, for minor haze, MSBDN should be used,  for intermediate haze, MSBDN or DCP should be used, 
+                                while for serious haze, DCP should be used instead.
                             </p>
                         </div>
                     </div>
