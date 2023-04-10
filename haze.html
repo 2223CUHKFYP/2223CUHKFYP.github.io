@@ -298,8 +298,8 @@
                     <thead>
                         <tr>
                             <th rowspan="2">Dehazing Techniques</th>
-                            <th colspan="3">SSIM</th>
                             <th colspan="3">PSNR (dB)</th>
+                            <th colspan="3">SSIM</th>
                         </tr>
                         <tr>
                             <th>0.01</th>
@@ -313,39 +313,39 @@
                     <tbody>
                         <tr>
                             <td>MSBDN</td>
-                            <td>0.93</td>
-                            <td>0.92</td>
-                            <td>0.68</td>
                             <td>28.34</td>
                             <td>25.60</td>
                             <td>11.14</td>
+                            <td>0.93</td>
+                            <td>0.92</td>
+                            <td>0.68</td>
                         </tr>
                         <tr>
                             <td>Dehamer</td>
-                            <td>0.91</td>
-                            <td>0.87</td>
-                            <td>0.57</td>
                             <td>25.77</td>
                             <td>21.72</td>
                             <td>7.97</td>
+                            <td>0.91</td>
+                            <td>0.87</td>
+                            <td>0.57</td>
                         </tr>
                         <tr>
                             <td>Dehamer_indoor</td>
-                            <td>0.89</td>
-                            <td>0.88</td>
-                            <td>0.81</td>
                             <td>23.93</td>
                             <td>23.01</td>
                             <td>18.43</td>
+                            <td>0.89</td>
+                            <td>0.88</td>
+                            <td>0.81</td>
                         </tr>
                         <tr>
                             <td>DCP</td>
-                            <td>0.81</td>
-                            <td>0.84</td>
-                            <td>0.82</td>
                             <td>18.41</td>
                             <td>19.06</td>
                             <td>18.68</td>
+                            <td>0.81</td>
+                            <td>0.84</td>
+                            <td>0.82</td>
                         </tr>
                     </tbody>
                 </table>
@@ -598,7 +598,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         <script>
-            const data = {
+            const ssimData = {
                 labels: ['0.01', '0.02', '0.06'],
                 datasets: [
                     {
@@ -608,10 +608,16 @@
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     },
                     {
-                        label: 'Dehamer_indoor',
-                        data: [0.89, 0.88, 0.81],
+                        label: 'Dehamer',
+                        data: [0.91, 0.87, 0.57],
                         borderColor: 'rgba(75, 192, 192, 1)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    },
+                    {
+                        label: 'Dehamer_indoor',
+                        data: [0.89, 0.88, 0.81],
+                        borderColor: 'rgba(255, 205, 86, 1)',
+                        backgroundColor: 'rgba(255, 205, 86, 0.2)',
                     },
                     {
                         label: 'DCP',
@@ -624,7 +630,7 @@
 
             const config = {
                 type: 'line',
-                data: data,
+                data: ssimData,
                 options: {
                     responsive: true,
                     plugins: {
@@ -657,10 +663,16 @@
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     },
                     {
-                        label: 'Dehamer_indoor',
-                        data: [23.93, 23.01, 18.43],
+                        label: 'Dehamer',
+                        data: [25.77, 21.72, 7.97],
                         borderColor: 'rgba(75, 192, 192, 1)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    },
+                    {
+                        label: 'Dehamer_indoor',
+                        data: [23.93, 23.01, 18.43],
+                        borderColor: 'rgba(255, 205, 86, 1)',
+                        backgroundColor: 'rgba(255, 205, 86, 0.2)',
                     },
                     {
                         label: 'DCP',
