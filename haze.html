@@ -83,7 +83,7 @@
                     understanding in haze conditions with video data. We extract images from the BDD100K dataset and
                     simulate haze conditions using TCMonoDepth for video depth estimation and SeeingThroughFog with
                     varying beta values (0.05, 0.01, 0.02, 0.06) for haze generation. Four prominent dehazing
-                    techniques, namely MSBDN, DehazeNet, DehazeNet_indoor, and DCP, are applied to the hazed images, and
+                    techniques, namely MSBDN, Dehamer, Dehamer_indoor, and DCP, are applied to the hazed images, and
                     their performance is compared based on the Structural Similarity Index Measure (SSIM) as an
                     evaluation metric.</p>
                 </br>
@@ -139,17 +139,17 @@
 
                 <ul>
                     <li>MSBDN (Multi-Scale Bidirectional Dense Network)</li>
-                    <li>DehazeNet</li>
-                    <li>DehazeNet_indoor</li>
+                    <li>Dehamer</li>
+                    <li>Dehamer_indoor</li>
                     <li>DCP (Dark Channel Prior)</li>
                 </ul>
                 <h3>MSBDN (Multi-Scale Bidirectional Dense Network)</h3>
                 <p>This is a Multi-Scale Boosted Dehazing Network with Dense Feature Fusion based on the U-Net
                     architecture to address the image dehazing problem.</p>
-                <h3>DehazeNet(Dehamer)</h3>
+                <h3>Dehamer(Dehamer)</h3>
                 <p>This is a DeHamer for single image dehazing that combines Convolutional Neural Networks (CNNs) and
                     Transformer. </p>
-                <h3>DehazeNet_indoor</h3>
+                <h3>Dehamer_indoor</h3>
                 <p>Ditto, with different training weight</p>
                 <h3>DCP (Dark Channel Prior)</h3>
                 <p>This is a Dark Channel Prior for single image haze removal that is based on the dark channel prior
@@ -162,7 +162,7 @@
                     range from -1 to 1, with 1 indicating a perfect match between the two images.
                 </p>
                 <p>In this study, we will use SSIM to evaluate the performance of the selected dehazing techniques
-                    (MSBDN, DehazeNet, DehazeNet_indoor, and DCP)by comparing the dehazed images with the original,
+                    (MSBDN, Dehamer, Dehamer_indoor, and DCP)by comparing the dehazed images with the original,
                     clear images from the BDD100K dataset. A higher SSIM value indicates better dehazing performance, as
                     it suggests that the processed image is more similar to the original image in terms of structure,
                     contrast, and luminance. This metric allows for a quantitative assessment of the dehazing
@@ -258,8 +258,8 @@
 
                 <h3>Dehazing</h3>
                 <p>After generating the hazy images, we apply the dehazing techniques to the hazy images to restore the
-                    original image quality. The dehazing techniques considered in this study include MSBDN, DehazeNet,
-                    DehazeNet_indoor, and DCP. These techniques are designed to remove the haze and improve the
+                    original image quality. The dehazing techniques considered in this study include MSBDN, Dehamer,
+                    Dehamer_indoor, and DCP. These techniques are designed to remove the haze and improve the
                     visibility of the underlying scene.</p>
                 <p>To evaluate the performance of the dehazing techniques, we use the SSIM metric to compare the
                     dehazed images with the original, clear images from the BDD100K dataset. A higher SSIM value
@@ -277,8 +277,8 @@
             <div class="col-md-6 mb-4">
                 <h2>Results</h2>
                 <p>After generating the hazy images, we apply the dehazing techniques to the hazy images to restore the
-                    original image quality. The dehazing techniques considered in this study include MSBDN, DehazeNet,
-                    DehazeNet_indoor, and DCP. These techniques are designed to remove the haze and improve the
+                    original image quality. The dehazing techniques considered in this study include MSBDN, Dehamer,
+                    Dehamer_indoor, and DCP. These techniques are designed to remove the haze and improve the
                     visibility of the underlying scene.</p>
                 <br />
 
@@ -320,17 +320,17 @@
                             <td>25.60</td>
                             <td>11.14</td>
                         </tr>
-                        <!-- <tr>
-                            <td>DehazeNet no data</td>
-                            <td>0.91</td>
-                            <td>0.999</td>
-                            <td>0.999</td>
-                            <td>25.77</td>
-                            <td>18.51</td>
-                            <td>18.31</td>
-                        </tr> -->
                         <tr>
-                            <td>DehazeNet_indoor</td>
+                            <td>Dehamer</td>
+                            <td>0.91</td>
+                            <td>0.87</td>
+                            <td>0.57</td>
+                            <td>25.77</td>
+                            <td>21.72</td>
+                            <td>7.97</td>
+                        </tr>
+                        <tr>
+                            <td>Dehamer_indoor</td>
                             <td>0.89</td>
                             <td>0.88</td>
                             <td>0.81</td>
@@ -368,8 +368,8 @@
                     dataset. The following images are the original hazy images and the dehazed images. The
                     dehazed
                     images are generated by the dehazing techniques. The dehazing techniques are MSBDN,
-                    DehazeNet,
-                    DehazeNet_indoor and DCP. These examples help demonstrate the overall visibility, color
+                    Dehamer,
+                    Dehamer_indoor and DCP. These examples help demonstrate the overall visibility, color
                     fidelity,
                     and preservation of image details in the dehazed images.
                 </p>
@@ -429,54 +429,54 @@
                         </div>
                     </div>
 
-                    <p>DehazeNet</p>
+                    <p>Dehamer</p>
                     <div class="hazingImageCompare">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="demo">
                                     <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/DehazeNet/001.jpg" />
+                                    <img src="resources/dehazingImage/Dehamer/001.jpg" />
                                 </div>
                                 0.01
                             </div>
                             <div class="col-md-4">
                                 <div class="demo">
                                     <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/DehazeNet/002.jpg" />
+                                    <img src="resources/dehazingImage/Dehamer/002.jpg" />
                                 </div>
                                 0.02
                             </div>
                             <div class="col-md-4">
                                 <div class="demo">
                                     <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/DehazeNet/006.jpg" />
+                                    <img src="resources/dehazingImage/Dehamer/006.jpg" />
                                 </div>
                                 0.06
                             </div>
                         </div>
                     </div>
 
-                    <p>DehazeNet_indoor</p>
+                    <p>Dehamer_indoor</p>
                     <div class="hazingImageCompare">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="demo">
                                     <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/DehazeNet_indoor/001.jpg" />
+                                    <img src="resources/dehazingImage/Dehamer_indoor/001.jpg" />
                                 </div>
                                 0.01
                             </div>
                             <div class="col-md-4">
                                 <div class="demo">
                                     <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/DehazeNet_indoor/002.jpg" />
+                                    <img src="resources/dehazingImage/Dehamer_indoor/002.jpg" />
                                 </div>
                                 0.02
                             </div>
                             <div class="col-md-4">
                                 <div class="demo">
                                     <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/DehazeNet_indoor/006.jpg" />
+                                    <img src="resources/dehazingImage/Dehamer_indoor/006.jpg" />
                                 </div>
                                 0.06
                             </div>
@@ -520,7 +520,7 @@
                             significantly drops at a beta value of 0.06, further indicating its struggle with severe
                             haze conditions.
                         </li>
-                        <li>DehazeNet_indoor shows a consistent performance across all beta values, with slightly lower
+                        <li>Dehamer_indoor shows a consistent performance across all beta values, with slightly lower
                             PSNR scores than MSBDN for 0.01 and 0.02, but outperforming MSBDN at the 0.06 haze density.
                         </li>
                         <li>DCP has the lowest PSNR values for 0.01 and 0.02 beta values but exhibits a more stable
@@ -534,11 +534,11 @@
                             superior performance in removing haze and preserving image details at these haze densities.
                         </li>
                         <li>However, at a beta value of 0.06, MSBDN's performance significantly decreases, while
-                            DehazeNet_indoor and DCP exhibit better SSIM scores. This suggests that MSBDN might struggle
+                            Dehamer_indoor and DCP exhibit better SSIM scores. This suggests that MSBDN might struggle
                             in handling more severe haze conditions.
                         </li>
                         <li>
-                            DehazeNet_indoor performs consistently across all beta values, achieving slightly lower SSIM
+                            Dehamer_indoor performs consistently across all beta values, achieving slightly lower SSIM
                             scores compared to MSBDN for 0.01 and 0.02 but outperforming MSBDN at the highest haze
                             density (0.06).
                         </li>
@@ -550,7 +550,7 @@
                 </ul>
                 <p>In conclusion, MSBDN shows the best performance in terms of SSIM and PSNR for lower haze densities
                     (beta values of 0.01 and 0.02), but struggles with severe haze conditions (beta value of 0.06).
-                    DehazeNet_indoor demonstrates a more consistent performance across all haze densities, with slightly
+                    Dehamer_indoor demonstrates a more consistent performance across all haze densities, with slightly
                     lower scores than MSBDN for lower haze densities but outperforming it at the highest haze density.
                     DCP, though exhibiting the lowest performance for lower haze densities, presents a more stable
                     performance across varying haze densities, surpassing MSBDN at the highest haze density.</p>
@@ -608,7 +608,7 @@
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     },
                     {
-                        label: 'DehazeNet_indoor',
+                        label: 'Dehamer_indoor',
                         data: [0.89, 0.88, 0.81],
                         borderColor: 'rgba(75, 192, 192, 1)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -657,7 +657,7 @@
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     },
                     {
-                        label: 'DehazeNet_indoor',
+                        label: 'Dehamer_indoor',
                         data: [23.93, 23.01, 18.43],
                         borderColor: 'rgba(75, 192, 192, 1)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
