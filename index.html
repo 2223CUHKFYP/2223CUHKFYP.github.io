@@ -124,7 +124,6 @@
 
         <div class="row">
             <div class="col-md-6 mb-4">
-                <h3>Videos:</h3>
                 <label for="method-select">Select a beta value:</label>
                 <select id="method-select" onchange="displayVideos()">
                     <option value="">--Select a Dataset--</option>
@@ -268,6 +267,7 @@
         <div class="row">
             <div class="col-md-6 mb-4">
                 <h4>Best dehazing methods for MOTS in different haze datasets:</h4>
+                <h5>MSBDN (0.01), DCP (0.02), DCP (0.06)</h5>
                 <figure style="float: left;padding-right: 5%;">
                     <video width="320" height="240" controls>
                         <source src="./resources/pcan/seg_track/001_MSBDN/b1c9c847-3bda4659_001_msbdn.mp4"
@@ -296,13 +296,41 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h4>Key Findings:</h4>
+                <ul>
+                    <li>For the MOT task, Dehamer indoor is the best dehazing method across all beta values (0.01, 0.02,
+                        0.06).</li>
+                    <li>For the MOTS task:</li>
+                    <ul>
+                        <li>
+                            For beta value 0.01 (minor haze), MSBDN is the best dehazing method.
+                        </li>
+                        <li>For beta value 0.02 (intermediate haze), MSBDN and DCP are both satisfactory, but MSBDN has
+                            slightly better results.</li>
+                        <li>For beta value 0.06 (serious haze), DCP is the best dehazing method and offers more
+                            significant improvements than other methods.</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h4>Conclusions:</h4>
+                <p>The results of this study suggest that Dehamer indoor should be used for dehazing in the MOT task,
+                    potentially as a preprocessing stage. In the MOTS task, MSBDN should be employed for dehazing in
+                    cases of minor or intermediate haze, while DCP should be used for serious haze.</p>
+            </div>
+        </div>
+
+
 
     </div>
 
-    <script>
-        /*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
-        initComparisons();
-    </script>
 
 
 
