@@ -9,84 +9,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 
-    <script>
-        function initComparisons() {
-            var x, i;
-            /*find all elements with an "overlay" class:*/
-            x = document.getElementsByClassName("img-comp-overlay");
-            for (i = 0; i < x.length; i++) {
-                /*once for each "overlay" element:
-                pass the "overlay" element as a parameter when executing the compareImages function:*/
-                compareImages(x[i]);
-            }
-            function compareImages(img) {
-                var slider, img, clicked = 0, w, h;
-                /*get the width and height of the img element*/
-                w = img.offsetWidth;
-                h = img.offsetHeight;
-                /*set the width of the img element to 50%:*/
-                img.style.width = (w / 2) + "px";
-                /*create slider:*/
-                slider = document.createElement("DIV");
-                slider.setAttribute("class", "img-comp-slider");
-                /*insert slider*/
-                img.parentElement.insertBefore(slider, img);
-                /*position the slider in the middle:*/
-                slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
-                slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
-                /*execute a function when the mouse button is pressed:*/
-                slider.addEventListener("mousedown", slideReady);
-                /*and another function when the mouse button is released:*/
-                window.addEventListener("mouseup", slideFinish);
-                /*or touched (for touch screens:*/
-                slider.addEventListener("touchstart", slideReady);
-                /*and released (for touch screens:*/
-                window.addEventListener("touchend", slideFinish);
-                function slideReady(e) {
-                    /*prevent any other actions that may occur when moving over the image:*/
-                    e.preventDefault();
-                    /*the slider is now clicked and ready to move:*/
-                    clicked = 1;
-                    /*execute a function when the slider is moved:*/
-                    window.addEventListener("mousemove", slideMove);
-                    window.addEventListener("touchmove", slideMove);
-                }
-                function slideFinish() {
-                    /*the slider is no longer clicked:*/
-                    clicked = 0;
-                }
-                function slideMove(e) {
-                    var pos;
-                    /*if the slider is no longer clicked, exit this function:*/
-                    if (clicked == 0) return false;
-                    /*get the cursor's x position:*/
-                    pos = getCursorPos(e)
-                    /*prevent the slider from being positioned outside the image:*/
-                    if (pos < 0) pos = 0;
-                    if (pos > w) pos = w;
-                    /*execute a function that will resize the overlay image according to the cursor:*/
-                    slide(pos);
-                }
-                function getCursorPos(e) {
-                    var a, x = 0;
-                    e = (e.changedTouches) ? e.changedTouches[0] : e;
-                    /*get the x positions of the image:*/
-                    a = img.getBoundingClientRect();
-                    /*calculate the cursor's x coordinate, relative to the image:*/
-                    x = e.pageX - a.left;
-                    /*consider any page scrolling:*/
-                    x = x - window.pageXOffset;
-                    return x;
-                }
-                function slide(x) {
-                    /*resize the image:*/
-                    img.style.width = x + "px";
-                    /*position the slider:*/
-                    slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
-                }
-            }
+    <style>
+        .video-container {
+            display: none;
         }
-    </script>
+    </style>
 </head>
 
 <body>
@@ -96,16 +23,17 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html" id="nor_button">PAH2203 Final Year Project Report: Semantic Understanding in Haze Conditions with Video Data<br>
+                <a class="navbar-brand" href="index.html" id="nor_button">PAH2203 Final Year Project Report: Semantic
+                    Understanding in Haze Conditions with Video Data<br>
                     <b style="font-size:medium">Ng Hon Lam 1155143298, CUHK<br>
                         Lam Shi Shing 1155142786, CUHK
                 </a>
-                
+
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    
+
                 <ul class="nav navbar-nav">
                     <li class="nav_button"><a href="index.html">Overview</a></li>
                     <li class="nav_button"><a href="dataset.html">Dataset</a></li>
@@ -137,111 +65,287 @@
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="modified_center">
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    
-                    <ul class="nav navbar-nav">
-                        <li class="nav_button"><a href="#home">Home</a></li>
-                        <li class="nav_button"><a href="#doc_tool">Doc &amp; Tool</a></li>
-                        <li class="nav_button"><a href="#challenges">Challenges</a></li>
-                        <li class="nav_button"><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                </div><!-- /.navbar-collapse -->
+
             </div><!-- /.container-fluid -->
         </nav>
         <div class="row">
             <div class="col-md-6 mb-4">
-                <h2>Summary</h2>
-                <p>Insert a summary of the report results here.</p>
+                <h2>Overview</h2>
+                <p>This project investigates the impact of haze on object tracking performance for multiple object
+                    tracking (MOT) and multiple object tracking and segmentation (MOTS) tasks. UNICORN, a more
+                    sophisticated model, and PCAN, a baseline model, are used for evaluation. The experiments are
+                    conducted on the BDD100K dataset, which is a large-scale diverse driving video dataset with
+                    comprehensive annotations. Haze is added to the dataset with varying levels of intensity (beta
+                    values of 0.01, 0.02, and 0.06), and various dehazing techniques are applied to assess their impact
+                    on the models' performance.</p>
+
             </div>
+        </div>
+
+        <div class="row">
             <div class="col-md-6 mb-4">
-                <h2>Recommendations</h2>
+                <h3>Results:</h3>
                 <ul>
-                    <li>Insert recommendation 1 here.</li>
-                    <li>Insert recommendation 2 here.</li>
-                    <li>Insert recommendation 3 here.</li>
+                    <li>
+                        MOT and MOTS tasks are negatively affected by the presence of haze in the dataset.
+                    </li>
+                    <li>
+                        UNICORN, being a more powerful model, is less susceptible to haze than the baseline PCAN model.
+                    </li>
+                    <li>
+                        The performance of both models deteriorates with increasing haze intensity (higher beta values).
+                    </li>
+                    <li>
+                        Dehazing methods improve the performance of both models in MOT and MOTS tasks, with varying
+                        degrees of success.
+                    </li>
                 </ul>
             </div>
-
         </div>
-        <div class="row" id="doc_tool">
-            <div class="col-md-12">
-                <h2>Doc & Tool</h2>
-                <p>Insert content for Doc & Tool section here.</p>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h3>Videos:</h3>
+                <h4>MOTS for PCAN in different haze datasets:</h4>
             </div>
         </div>
-        <div class="row" id="challenges">
-            <div class="col-md-12">
-                <h2>Challenges</h2>
-                <p>Insert content for Challenges section here.</p>
-
-                <h1>Compare Two Images</h1>
-                <p>Click and slide the blue slider to compare two images:</p>
 
 
-                <div class="img-comp-container">
-                    <div class="img-comp-img">
-                        <img src="./image/002org.jpg" alt="original" height="200" />
-                    </div>
-                    <div class="img-comp-img img-comp-overlay">
-                        <img src="./image/002.jpg" alt="002" height="200" />
-                    </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <label for="method-select">Select a beta value:</label>
+                <select id="method-select" onchange="displayVideos()">
+                    <option value="">--Select a Dataset--</option>
+                    <option value="beta01">beta value 0.01</option>
+                    <option value="beta02">beta value 0.02</option>
+                    <option value="beta06">beta value 0.06</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="video-container" data-method="beta01">
+                    <h4>beta 0.01</h4>
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\001\b1c9c847-3bda4659_001.mp4" width="320" height="240"
+                            controls></video>
+                        <figcaption class="img_caption">Hazing dataset of beta value 0.01</figcaption>
+                    </figure>
+
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\001_MSBDN\b1c9c847-3bda4659_001_msbdn.mp4" width="320"
+                            height="240" controls></video>
+                        <figcaption class="img_caption">MSBDN</figcaption>
+
+                    </figure>
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\001_Dehamer\b1c9c847-3bda4659_001_dehamer.mp4" width="320"
+                            height="240" controls></video>
+                        <figcaption class="img_caption">Dehamer</figcaption>
+                    </figure>
+
+                    <figure style="float: left;padding-right: 5%;">
+                        <video
+                            src="resources\pcan\seg_track\001_Dehamer_indoor\b1c9c847-3bda4659_001_dehamer_indoor.mp4"
+                            width="320" height="240" controls></video>
+                        <figcaption class="img_caption">Dehamer Indoor</figcaption>
+                    </figure>
+
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\001_Single\b1c9c847-3bda4659_001_dcp.mp4" width="320"
+                            height="240" controls></video>
+                        <figcaption class="img_caption">DCP</figcaption>
+                    </figure>
+
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\normal\b1c9c847-3bda4659.mp4" width="320" height="240"
+                            controls></video>
+                        <figcaption class="img_caption">Normal</figcaption>
+                    </figure>
+                </div>
+
+                <div class="video-container" data-method="beta02">
+                    <h4>beta 0.02</h4>
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\002\b1c9c847-3bda4659_002.mp4" width="320" height="240"
+                            controls></video>
+                        <figcaption class="img_caption">Hazing dataset of beta value 0.02</figcaption>
+                    </figure>
+
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\002_MSBDN\b1c9c847-3bda4659_002_msbdn.mp4" width="320"
+                            height="240" controls></video>
+                        <figcaption class="img_caption">MSBDN</figcaption>
+
+                    </figure>
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\002_Dehamer\b1c9c847-3bda4659_002_dehamer.mp4" width="320"
+                            height="240" controls></video>
+                        <figcaption class="img_caption">Dehamer</figcaption>
+                    </figure>
+
+                    <figure style="float: left;padding-right: 5%;">
+                        <video
+                            src="resources\pcan\seg_track\002_Dehamer_indoor\b1c9c847-3bda4659_002_dehamer_indoor.mp4"
+                            width="320" height="240" controls></video>
+                        <figcaption class="img_caption">Dehamer Indoor</figcaption>
+                    </figure>
+
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\002_Single\b1c9c847-3bda4659_002_dcp.mp4" width="320"
+                            height="240" controls></video>
+                        <figcaption class="img_caption">DCP</figcaption>
+                    </figure>
+
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\normal\b1c9c847-3bda4659.mp4" width="320" height="240"
+                            controls></video>
+                        <figcaption class="img_caption">Normal</figcaption>
+                    </figure>
+                </div>
+
+                <div class="video-container" data-method="beta06">
+                    <h4>beta 0.06</h4>
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\006\b1c9c847-3bda4659_006.mp4" width="320" height="240"
+                            controls></video>
+                        <figcaption class="img_caption">Hazing dataset of beta value 0.06</figcaption>
+                    </figure>
+
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\006_MSBDN\b1c9c847-3bda4659_006_msbdn.mp4" width="320"
+                            height="240" controls></video>
+                        <figcaption class="img_caption">MSBDN</figcaption>
+
+                    </figure>
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\006_Dehamer\b1c9c847-3bda4659_006_dehamer.mp4" width="320"
+                            height="240" controls></video>
+                        <figcaption class="img_caption">Dehamer</figcaption>
+                    </figure>
+
+                    <figure style="float: left;padding-right: 5%;">
+                        <video
+                            src="resources\pcan\seg_track\006_Dehamer_indoor\b1c9c847-3bda4659_006_dehamer_indoor.mp4"
+                            width="320" height="240" controls></video>
+                        <figcaption class="img_caption">Dehamer Indoor</figcaption>
+                    </figure>
+
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\006_Single\b1c9c847-3bda4659_006_dcp.mp4" width="320"
+                            height="240" controls></video>
+                        <figcaption class="img_caption">DCP</figcaption>
+                    </figure>
+
+                    <figure style="float: left;padding-right: 5%;">
+                        <video src="resources\pcan\seg_track\normal\b1c9c847-3bda4659.mp4" width="320" height="240"
+                            controls></video>
+                        <figcaption class="img_caption">Normal</figcaption>
+                    </figure>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Detailed Results</h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Experiment</th>
-                            <th>Result 1</th>
-                            <th>Result 2</th>
-                            <th>Result 3</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Experiment 1</td>
-                            <td>Insert result 1 here</td>
-                            <td>Insert result 2 here</td>
-                            <td>Insert result 3
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Experiment 2</td>
-                            <td>Insert result 1 here</td>
-                            <td>Insert result 2 here</td>
-                            <td>Insert result 3 here</td>
-                        </tr>
-                        <tr>
-                            <td>Experiment 3</td>
-                            <td>Insert result 1 here</td>
-                            <td>Insert result 2 here</td>
-                            <td>Insert result 3 here</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h4>Best dehazing methods for MOTS in different haze datasets:</h4>
+                <h5>MSBDN (0.01), DCP (0.02), DCP (0.06)</h5>
+                <figure style="float: left;padding-right: 5%;">
+                    <video width="320" height="240" controls>
+                        <source src="./resources/pcan/seg_track/001_MSBDN/b1c9c847-3bda4659_001_msbdn.mp4"
+                            type="video/mp4">
+                    </video>
+                    <figcaption class="img_caption">MSBDN on haze dataset of beta value 0.01</figcaption>
+                </figure>
+                <figure style="float: left;padding-right: 5%;">
+                    <video width="320" height="240" controls>
+                        <source src="./resources/pcan/seg_track/002_Single/b1c9c847-3bda4659_002_dcp.mp4"
+                            type="video/mp4">
+                    </video>
+                    <figcaption class="img_caption">DCP on haze dataset of beta value 0.02</figcaption>
+                </figure>
+                <figure>
+                    <video width="320" height="240" controls>
+                        <source src="./resources/pcan/seg_track/006_Single/b1c9c847-3bda4659_006_dcp.mp4"
+                            type="video/mp4">
+                    </video>
+                    <figcaption class="img_caption" style="margin-right: 2.5%;">DCP on haze dataset of beta
+                        value 0.06
+                    </figcaption>
+                </figure>
+
+
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h4>Key Findings:</h4>
+                <ul>
+                    <li>For the MOT task, Dehamer indoor is the best dehazing method across all beta values (0.01, 0.02,
+                        0.06).</li>
+                    <li>For the MOTS task:</li>
+                    <ul>
+                        <li>
+                            For beta value 0.01 (minor haze), MSBDN is the best dehazing method.
+                        </li>
+                        <li>For beta value 0.02 (intermediate haze), MSBDN and DCP are both satisfactory, but MSBDN has
+                            slightly better results.</li>
+                        <li>For beta value 0.06 (serious haze), DCP is the best dehazing method and offers more
+                            significant improvements than other methods.</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h4>Conclusions:</h4>
+                <p>The results of this study suggest that Dehamer indoor should be used for dehazing in the MOT task,
+                    potentially as a preprocessing stage. In the MOTS task, MSBDN should be employed for dehazing in
+                    cases of minor or intermediate haze, while DCP should be used for serious haze.</p>
+            </div>
+        </div>
+
 
 
     </div>
 
-
-    <script>
-        /*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
-        initComparisons();
-    </script>
 
 
 
     <!-- jQuery and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- video selection -->
+
+    <script>
+        function displayVideos() {
+            var method = document.getElementById("method-select").value;
+            var containers = document.getElementsByClassName("video-container");
+
+            for (var i = 0; i < containers.length; i++) {
+                if (containers[i].getAttribute("data-method") === method) {
+                    containers[i].style.display = "block";
+                } else {
+                    containers[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+
 </body>
 
 </html>
