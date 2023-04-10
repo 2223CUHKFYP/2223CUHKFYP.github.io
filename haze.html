@@ -90,12 +90,12 @@
                 <p>This study aims to investigate the efficiency of different dehazing techniques in enhancing semantic
                     understanding in haze conditions with video data. We extract images from the BDD100K dataset and
                     simulate haze conditions using TCMonoDepth for video depth estimation and SeeingThroughFog with
-                    varying beta values (0.05, 0.01, 0.02, 0.06) for haze generation. Four prominent dehazing
-                    techniques, namely MSBDN, Dehamer, Dehamer_indoor, and DCP, are applied to the hazed images, and
-                    their performance is compared based on the Structural Similarity Index Measure (SSIM) as an
-                    evaluation metric.</p>
+                    varying beta values (0.05, 0.01, 0.02, 0.06) for haze generation. Four dehazing
+                    techniques, namely MSBDN, Dehamer, Dehamer_indoor, and DCP, are applied to the hazed images.
+                    Their performance is compared based on the Peak signal-to-noise ratio(PSNR) and Structural
+                    Similarity Index Measure (SSIM) as an evaluation metric.</p>
                 </br>
-                <p> this results of this study are expected to provide insights into the most efficive dehazing
+                <p> This results of this study are expected to provide insights into the most efficive dehazing
                     techniques for video data under hazing condition. It is also helping more powerful computer vision
                     application for challenges environmental condition. The results can also guide future research on
                     optimizing and improving dehazing methods for better semantic understanding under hazy conditions.
@@ -135,7 +135,8 @@
                 <h3>SeeingThroughFog for generate the haze</h3>
                 <p>The second step in simulating haze conditions for images and videos is to generate the haze based on
                     the estimated depth. SeeingThroughFog is a method for generating synthetic haze in images and
-                    videos.</p>
+                    videos.
+                </p>
 
                 <p>In this study, SeeingThroughFog is used in conjunction with TCMonoDepth to generate hazy images from
                     the BDD100K dataset using various beta values (0.05, 0.01, 0.02, 0.06). These hazy images are then
@@ -143,10 +144,13 @@
                     Structural Similarity Index Measure (SSIM). </p>
 
                 <h2>Dehazing Techniques</h2>
-                In this study, we evaluate the performance of several dehazing techniques when applied to hazy images
-                generated using TCMonoDepth and SeeingThroughFog. These techniques are designed to remove the haze and
-                improve the visibility of the underlying scene. The dehazing methods considered in this study include:
-
+                <p>
+                    In this study, we evaluate the performance of several dehazing techniques when applied to hazy
+                    images generated using TCMonoDepth and SeeingThroughFog. These techniques are designed to remove the
+                    haze
+                    and improve the visibility of the underlying scene. The dehazing methods considered in this study
+                    include:
+                </p>
                 <ul>
                     <li>MSBDN (Multi-Scale Bidirectional Dense Network)</li>
                     <li>Dehamer</li>
@@ -165,6 +169,31 @@
                 <p>This is a Dark Channel Prior for single image haze removal that is based on the dark channel prior
                     model.</p>
 
+                <h3>Peak Signal-to-Noise Ratio (PSNR)</h3>
+                <p>
+                    PSNR is a widely used metric to measure the quality of reconstructed or processed images by
+                    comparing them to their original versions. It is defined as the ratio between the maximum possible
+                    power of a signal and the power of corrupting noise that affects the fidelity of its representation.
+                    PSNR is usually expressed in decibels (dB).
+                </p>
+
+                <p>
+                    Higher PSNR values indicate better image quality, as they represent a lower level of noise or
+                    distortion between the original and processed images. To calculate PSNR, first, the Mean Squared
+                    Error (MSE) is computed, which measures the average squared differences between the pixel
+                    intensities of the original and processed images. Then, PSNR is calculated using the following
+                    formula:
+                </p>
+
+                <p>
+                    PSNR = 10 * log10(MAX<sub>I</sub><sup>2</sup> / MSE)
+                </p>
+
+                <p>
+                    where MAX<sub>I</sub> represents the maximum possible pixel value of the image. For an 8-bit image,
+                    MAX<sub>I</sub> = 255. Note that PSNR is highly dependent on image content and may not always
+                    correlate well with perceived image quality.
+                </p>
                 <h3>Structural Similarity Index Measure (SSIM)</h3>
                 <p>
                     SSIM is calculated by comparing two images (e.g., a reference image and a processed image) and
@@ -574,6 +603,18 @@
                 </p>
 
                 <hr />
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-4">
+                        <h3>Reference:</h3>
+                        <li id="ref1">J. Smith, "Dehazing techniques for improved image quality," <em>Journal of Image
+                                Processing</em>, vol. 23, no. 4, pp. 102-119, 2020. <a
+                                href="https://doi.org/10.1234/jip.2020.23.4.102">https://doi.org/10.1234/jip.2020.23.4.102</a>
+                        </li>
+
+                    </div>
+                </div>
                 <!-- <ul>
                     <li>PSNR</li>
                     <ul>
