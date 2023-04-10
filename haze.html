@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="style.css">
     <link href="css/twentytwenty.css" rel="stylesheet" type="text/css" />
 
+    <style>
+        hr {
+            border: none;
+            height: 2px;
+            background-color: black;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -78,7 +86,7 @@
         </nav>
         <div class="row">
             <div class="col-md-6 mb-4">
-                <h2>Introduce</h2>
+                <h2>Introduction</h2>
                 <p>This study aims to investigate the efficiency of different dehazing techniques in enhancing semantic
                     understanding in haze conditions with video data. We extract images from the BDD100K dataset and
                     simulate haze conditions using TCMonoDepth for video depth estimation and SeeingThroughFog with
@@ -92,7 +100,9 @@
                     application for challenges environmental condition. The results can also guide future research on
                     optimizing and improving dehazing methods for better semantic understanding under hazy conditions.
                 </p>
+                <hr />
             </div>
+
 
             <div class="col-md-6 mb-4">
                 <h1>Techniques</h1>
@@ -168,7 +178,7 @@
                     contrast, and luminance. This metric allows for a quantitative assessment of the dehazing
                     techniques' efficiency and effectiveness in restoring image quality under various haze conditions.
                 </p>
-
+                <hr />
             </div>
 
 
@@ -269,7 +279,7 @@
                     assessment of the dehazing techniques' efficiency and effectiveness in restoring image quality under
                     various haze conditions.</p>
 
-
+                <hr />
             </div>
         </div>
         <div class="row">
@@ -512,7 +522,59 @@
                 </div>
 
                 <h2>Performance Analysis</h2>
+
                 <ul>
+                    <li>MSBDN:</li>
+                    <p>MSBDN demonstrates the best performance among the dehazing techniques, achieving the highest SSIM
+                        scores (0.93, 0.92, and 0.68) and PSNR values (28.34 dB and 25.60 dB) for beta 0.01 and 0.02.
+                        However, its PSNR drops significantly to 11.14 dB for beta 0.06. This indicates that while MSBDN
+                        is highly effective at dehazing images with low to moderate haze density, its performance
+                        degrades when dealing with more severe haze. Despite this, MSBDN still maintains the highest
+                        SSIM score of 0.68 for beta 0.06, suggesting it preserves the structural similarity between the
+                        dehazed and original images better than other techniques, even under more challenging
+                        conditions.
+                    </p>
+                    <li>Dehamer:</li>
+                    <p>
+                        Dehamer shows good performance for low beta values (0.01 and 0.02) with SSIM scores of 0.91 and
+                        0.87 and PSNR values of 25.77 dB and 21.72 dB, respectively. However, its performance drops
+                        significantly for beta 0.06, with a PSNR value of 7.97 dB and an SSIM score of 0.57. This
+                        suggests that Dehamer might struggle to handle severe haze conditions effectively, leading to a
+                        decrease in image quality and preservation of structural similarity.
+                    </p>
+
+                    <li>Dehamer_indoor:</li>
+                    <p>Dehamer_indoor exhibits relatively stable performance across all beta values. Its SSIM scores
+                        range from 0.89 to 0.81, with a slight decrease as the haze density increases. It achieves the
+                        highest PSNR value (18.43 dB) for beta 0.06, which indicates its ability to handle more severe
+                        haze conditions better than the other techniques. Since Dehamer_indoor is specifically designed
+                        for indoor environments, it is possible that its performance could be even better if applied to
+                        a dataset consisting solely of indoor scenes. Nonetheless, its stable performance suggests that
+                        it is a robust method for dehazing images under various haze densities.
+                    </p>
+
+                    <li>DCP:</li>
+                    <p>DCP has the lowest PSNR values for beta 0.01 (18.41 dB) and 0.02 (19.06 dB) but maintains
+                        relatively stable PSNR (18.68 dB) and SSIM scores (0.81, 0.84, and 0.82) across all beta values.
+                        This indicates that while DCP might not be as effective in removing haze as the other
+                        techniques, it still preserves the structural similarity between the dehazed and original images
+                        under different haze conditions. However, its lower PSNR values suggest that the overall image
+                        quality might be compromised when using DCP for dehazing.
+                    </p>
+
+                </ul>
+
+                <br />
+                <p>
+                    In conclusion, each dehazing technique has its strengths and weaknesses, with MSBDN emerging as the
+                    top performer in terms of both PSNR and SSIM. Dehamer_indoor shows stable performance across various
+                    haze densities, and DCP maintains relatively stable SSIM scores, although it struggles with image
+                    quality as indicated by the lower PSNR values. Understanding these differences can help guide the
+                    selection of an appropriate dehazing technique for a specific application or scenario.
+                </p>
+
+                <hr />
+                <!-- <ul>
                     <li>PSNR</li>
                     <ul>
                         <li>MSBDN exhibits the highest PSNR values for beta values of 0.01 and 0.02, which aligns with
@@ -553,7 +615,7 @@
                     Dehamer_indoor demonstrates a more consistent performance across all haze densities, with slightly
                     lower scores than MSBDN for lower haze densities but outperforming it at the highest haze density.
                     DCP, though exhibiting the lowest performance for lower haze densities, presents a more stable
-                    performance across varying haze densities, surpassing MSBDN at the highest haze density.</p>
+                    performance across varying haze densities, surpassing MSBDN at the highest haze density.</p> -->
 
 
             </div>
