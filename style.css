@@ -223,3 +223,10 @@ body {
     margin-left: 5%;
     margin-right: auto;
 }
+
+.hr {
+    border: none;
+    height: 2px;
+    background-color: black;
+    margin: 20px 0;
+}
