@@ -73,7 +73,7 @@
         </nav>
         <div class="row">
             <div class="col-md-6 mb-4">
-                <h2>Introduction</h2>
+                <h2 class="p_title">Introduction</h2>
                 <p>This study aims to investigate the efficiency of different dehazing techniques in enhancing semantic
                     understanding in haze conditions with video data. We extract images from the BDD100K dataset<a
                         href="#ref1"><sup>[1]</sup></a> and
@@ -94,11 +94,8 @@
                 </p>
                 <hr />
             </div>
-
-
             <div class="col-md-6 mb-4">
-                <h1>Techniques</h1>
-                <h2>Hazing Techniques</h2>
+                <h2 class="p_title">Hazing Techniques</h2>
                 <p>Although this study focuses on dehazing techniques, it is important to understand the process of
                     generation synthetic haze in image and video to create a realistic environment for evaluation the
                     performance of dehazing algorithms. The following overview.</p>
@@ -109,40 +106,42 @@
                     <li>TCMonoDepth<a href="#ref2"><sup>[2]</sup></a> for Depth Estimation</li>
                     <li>SeeingThroughFog<a href="#ref3"><sup>[3]</sup></a> for generate the haze</li>
                 </ul>
+                <div class="col-md-6 mb-4">
+                    <h2 class="p_subtitle">TCMonoDepth<a href="#ref2"><sup>[2]</sup></a> for Depth Estimation</h2>
+                    <p>The first step in simulating haze conditions for images and videos is to estimate the depth of the
+                        scene. TCMonoDepth<a href="#ref2"><sup>[2]</sup></a> is a method for stable depth estimation for any
+                        video.</p>
 
-                <h3>TCMonoDepth<a href="#ref2"><sup>[2]</sup></a> for Depth Estimation</h3>
-                <p>The first step in simulating haze conditions for images and videos is to estimate the depth of the
-                    scene. TCMonoDepth<a href="#ref2"><sup>[2]</sup></a> is a method for stable depth estimation for any
-                    video.</p>
+                    <p>In this study, TCMonoDepth<a href="#ref2"><sup>[2]</sup></a> is employed to estimate depth
+                        information from the images extracted from
+                        the BDD100K dataset<a href="#ref1"><sup>[1]</sup></a>. These depth maps are then used in conjunction
+                        with SeeingThroughFog<a href="#ref3"><sup>[3]</sup></a> to generate
+                        haze conditions with varying densities, controlled by adjusting the beta parameter.</p>
 
-                <p>In this study, TCMonoDepth<a href="#ref2"><sup>[2]</sup></a> is employed to estimate depth
-                    information from the images extracted from
-                    the BDD100K dataset<a href="#ref1"><sup>[1]</sup></a>. These depth maps are then used in conjunction
-                    with SeeingThroughFog<a href="#ref3"><sup>[3]</sup></a> to generate
-                    haze conditions with varying densities, controlled by adjusting the beta parameter.</p>
+                    <p>By using TCMonoDepth<a href="#ref2"><sup>[2]</sup></a> for depth estimation, we ensure that the
+                       synthetic haze generation process is
+                        more realistic, as it accounts for the spatial distribution of objects in the scene. This approach
+                        allows for a more accurate evaluation of the dehazing techniques' performance when applied to video
+                        data affected by haze conditions.
+                    </p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h2 class="p_subtitle">SeeingThroughFog<a href="#ref3"><sup>[3]</sup></a> for generate the haze</h2>
+                    <p>The second step in simulating haze conditions for images and videos is to generate the haze based on
+                        the estimated depth. SeeingThroughFog<a href="#ref3"><sup>[3]</sup></a> is a method for generating
+                        synthetic haze in images and
+                        videos.
+                    </p>
 
-                <p>By using TCMonoDepth<a href="#ref2"><sup>[2]</sup></a> for depth estimation, we ensure that the
-                    synthetic haze generation process is
-                    more realistic, as it accounts for the spatial distribution of objects in the scene. This approach
-                    allows for a more accurate evaluation of the dehazing techniques' performance when applied to video
-                    data affected by haze conditions.
-                </p>
-
-                <h3>SeeingThroughFog<a href="#ref3"><sup>[3]</sup></a> for generate the haze</h3>
-                <p>The second step in simulating haze conditions for images and videos is to generate the haze based on
-                    the estimated depth. SeeingThroughFog<a href="#ref3"><sup>[3]</sup></a> is a method for generating
-                    synthetic haze in images and
-                    videos.
-                </p>
-
-                <p>In this study, SeeingThroughFog<a href="#ref3"><sup>[3]</sup></a> is used in conjunction with
-                    TCMonoDepth<a href="#ref2"><sup>[2]</sup></a> to generate hazy images from
-                    the BDD100K dataset<a href="#ref1"><sup>[1]</sup></a> using various beta values (0.05, 0.01, 0.02,
-                    0.06). These hazy images are then
-                    processed using different dehazing techniques, and their performance is evaluated using the
-                    Peak Signal-to-Noise Ratio (PSNR) and Structural Similarity Index Measure (SSIM). </p>
-
-                <h2>Dehazing Techniques</h2>
+                    <p>In this study, SeeingThroughFog<a href="#ref3"><sup>[3]</sup></a> is used in conjunction with
+                        TCMonoDepth<a href="#ref2"><sup>[2]</sup></a> to generate hazy images from
+                        the BDD100K dataset<a href="#ref1"><sup>[1]</sup></a> using various beta values (0.05, 0.01, 0.02,
+                        0.06). These hazy images are then
+                        processed using different dehazing techniques, and their performance is evaluated using the
+                        Peak Signal-to-Noise Ratio (PSNR) and Structural Similarity Index Measure (SSIM). </p>
+                </div>
+                <br>
+                <h2 class="p_title">Dehazing Techniques</h2>
                 <p>
                     In this study, we evaluate the performance of several dehazing techniques when applied to hazy
                     images generated using TCMonoDepth<a href="#ref2"><sup>[2]</sup></a> and SeeingThroughFog<a
@@ -158,19 +157,31 @@
                     <li>Dehamer_indoor<a href="#ref5"><sup>[5]</sup></a></li>
                     <li>DCP (Dark Channel Prior)<a href="#ref6"><sup>[6]</sup></a></li>
                 </ul>
-                <h3>MSBDN-DFF</h3>
-                <p>This is a Multi-Scale Boosted Dehazing Network with Dense Feature Fusion based on the U-Net
-                    architecture to address the image dehazing problem.</p>
-                <h3>Dehamer</h3>
-                <p>This is a DeHamer for single image dehazing that combines Convolutional Neural Networks (CNNs) and
-                    Transformer. </p>
-                <h3>Dehamer_indoor</h3>
-                <p>Ditto, with different training weight</p>
-                <h3>DCP (Dark Channel Prior)</h3>
-                <p>This is a Dark Channel Prior for single image haze removal that is based on the dark channel prior
-                    model.</p>
-
-                <h3>Peak Signal-to-Noise Ratio (PSNR)</h3>
+                <div class="col-md-6 mb-4">
+                <h2 class="p_subtitle">MSBDN-DFF</h2>
+                    <p>This is a Multi-Scale Boosted Dehazing Network with Dense Feature Fusion based on the U-Net
+                        architecture to address the image dehazing problem.
+                    </p>
+                </div>
+                <div class="col-md-6 mb-4">
+                <h2 class="p_subtitle">Dehamer</h2>
+                    <p>This is a DeHamer for single image dehazing that combines Convolutional Neural Networks (CNNs) and
+                        Transformer. 
+                    </p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h2 class="p_subtitle">Dehamer_indoor</h2>
+                    <p>
+                        Ditto, with different training weight
+                    </p>
+                </div>
+                <div class="col-md-6 mb-4">
+                <h2 class="p_subtitle">DCP (Dark Channel Prior)</h2>
+                    <p>This is a Dark Channel Prior for single image haze removal that is based on the dark channel prior
+                        model.
+                    </p>
+                </div>
+                <h2 class="p_title">Peak Signal-to-Noise Ratio (PSNR)</h2>
                 <p>
                     PSNR is a widely used metric to measure the quality of reconstructed or processed images by
                     comparing them to their original versions. It is defined as the ratio between the maximum possible
@@ -178,7 +189,7 @@
                     PSNR is usually expressed in decibels (dB).<a href="#ref7"><sup>[7]</sup></a>
                 </p>
 
-                <h3>Structural Similarity Index Measure (SSIM)</h3>
+                <h2 class="p_title">Structural Similarity Index Measure (SSIM)</h2>
                 <p>
                     SSIM is calculated by comparing two images (e.g., a reference image and a processed image) and
                     quantifying the similarity in terms of luminance, contrast, and structural information. SSIM values
@@ -205,391 +216,397 @@
         <div class="row">
 
             <div class="col-md-6 mb-4">
-                <h2>Methodology</h2>
-                <h3>Hazing</h3>
-                <h3>Extracting Images from the BDD100K Dataset</h3>
-                <p>Introduce the BDD100K <a href="/dataset.html">click me</a>
-                </p>
-
-                <h3>Customizing TCMonoDepth<a href="#ref1"><sup>[2]</sup></a> and SeeingThroughFog<a
-                        href="#ref1"><sup>[3]</sup></a> for Efficient Haze Generation</h3>
-                <p>After extracting the images from the BDD100K dataset, we generate hazing images by applying a
-                    customized version of TCMonoDepth for video depth estimation and SeeingThroughFog for haze
-                    generation.
-                </p>
-
-                <p>
-                    Depth estimation with customized TCMonoDepth: For each extracted image, we use our modified version
-                    of TCMonoDepth to estimate the depth map. The original TCMonoDepth was designed to return a GIF and
-                    video; however, we refactored it to return depth map data instead. This depth map represents the
-                    distance between the camera and objects in the scene, providing essential information for simulating
-                    realistic haze conditions. The advantage is that TCMonoDepth is trained on a large dataset of
-                    synchronized stereo video data to accurately estimate depth maps from single images
-                </p>
-
-                <p>
-                    Efficient and accurate haze generation with modified SeeingThroughFog: During our initial work with
-                    the haze generation process, we identified a problem in the calculation of haze in the original
-                    SeeingThroughFog implementation. To address this issue, we customized SeeingThroughFog by
-                    integrating the OpenCV library, which enabled us to fix the calculation problem and improve the
-                    accuracy of the generated haze.
-                </p>
-                <p>
-                    We further optimized the haze generation process by streamlining the interaction between TCMonoDepth
-                    and SeeingThroughFog. Our customized implementation integrated TCMonoDepth's depth data output
-                    directly into the haze generation process, bypassing the need for CSV files. This allowed us to
-                    significantly reduce the processing time to 0.5 seconds per image.
-                </p>
-
-
-
-                <p>We retained the core functionality of SeeingThroughFog, which uses the depth map and atmospheric
-                    properties defined by the beta parameter to calculate the attenuation and scattering coefficients of
-                    the haze.<a href="#ref9"><sub>[9]</sub></a> The final fogged image is produced by combining the
-                    input image and the fog layer created
-                    using these coefficients with a depth-dependent blending function.
-                </p>
-
-                <p>
-                    Various beta values: By varying the beta parameter in our customized SeeingThroughFog
-                    implementation, we produce hazy photos with various fog densities in order to assess the
-                    effectiveness of dehazing procedures under various haze situations. In this study, we represented a
-                    variety of haze densities from mild fog to deep fog using four distinct beta values (0.05, 0.01,
-                    0.02, 0.06).
-                </p>
-
-                <p>This is some Demo of the Haze Generation by using our customized TCMonoDepth for Video Depth
-                    Estimation and SeeingThroughFog for Haze Generation
-
-                </p>
-
-                <div class="hazingImageCompare">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="demo">
-                                <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
-                                <img src="resources/hazingImage/hazing0005ImageForBDD100K.jpg" />
-                            </div>
-                            0.005
-                        </div>
-                        <div class="col-md-6">
-                            <div class="demo">
-                                <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
-                                <img src="resources/hazingImage/hazing001ImageForBDD100K.jpg" />
-                            </div>
-                            0.01
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="demo">
-                                <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
-                                <img src="resources/hazingImage/hazing002ImageForBDD100K.jpg" />
-                            </div>
-                            0.02
-                        </div>
-                        <div class="col-md-6">
-                            <div class="demo">
-                                <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
-                                <img src="resources/hazingImage/hazing006ImageForBDD100K.jpg" />
-                            </div>
-                            0.06
-                        </div>
-                    </div>
-
-                    <br />
+                <h2 class="p_title">Methodology</h2>
+                <!--<h3>Hazing</h3>-->
+                <div class="col-md-6 mb-4">
+                    <h2 class="p_subtitle">Extracting Images from the BDD100K Dataset</h2>
                     <p>
-                        By customizing TCMonoDepth and SeeingThroughFog, we generated a realistic and diverse set of
-                        hazy
-                        images that closely resemble real-world haze conditions more efficiently. The different beta
-                        values
-                        allow us to test the robustness of the dehazing techniques under different haze densities,
-                        providing
-                        a thorough evaluation of their performance. Our work demonstrates that we have made significant
-                        contributions to the project by improving the efficiency of the haze generation process and
-                        enabling
-                        a more accurate evaluation of the dehazing techniques.
+                        Introduced in the BDD100K <a href="/dataset.html">click me</a>
                     </p>
                 </div>
+                <div class="col-md-6 mb-4">
+                    <h2 class="p_subtitle">Customizing TCMonoDepth<a href="#ref1"><sup>[2]</sup></a> and SeeingThroughFog<a
+                            href="#ref1"><sup>[3]</sup></a> for Efficient Haze Generation</h2>
+                    <p>After extracting the images from the BDD100K dataset, we generate hazing images by applying a
+                        customized version of TCMonoDepth for video depth estimation and SeeingThroughFog for haze
+                        generation.
+                    </p>
 
-                <h3>Dehazing</h3>
-                <p>After generating the hazy images, we apply the dehazing techniques to the hazy images to restore the
-                    original image quality. The dehazing techniques considered in this study include MSBDN, Dehamer,
-                    Dehamer_indoor, and DCP. These techniques are designed to remove the haze and improve the visibility
-                    of the underlying scene.
-                </p>
-                <p>Customization and optimization of dehazing techniques: Some of the dehazing projects we employed did
-                    not output dehazed images by default. To ensure compatibility with our evaluation process and enable
-                    the use of these dehazed images in the next task, we modified the projects to output the dehazed
-                    images.
-                </p>
-                <p>Furthermore, we optimized the dehazing process by implementing multi-threading. Our school's GPU
-                    resources were limited, which required us to use multiple GPUs to generate the dehazed images more
-                    quickly. Implementing multi-threading allowed us to significantly speed up the dehazing process and
-                    make better use of available resources.
-                </p>
-                <p>Evaluating dehazing performance: To evaluate the performance of the dehazing techniques, we use the
-                    PSNR and SSIM metric to compare the dehazed images with the original, clear images from the BDD100K
-                    dataset[1]. A higher SSIM value indicates better dehazing performance, as it suggests that the
-                    processed image is more similar to the original image in terms of structure, contrast, and
-                    luminance. This metric allows for a quantitative assessment of the dehazing techniques' efficiency
-                    and effectiveness in restoring image quality under various haze conditions.
-                </p>
+                    <p>
+                        Depth estimation with customized TCMonoDepth: For each extracted image, we use our modified version
+                        of TCMonoDepth to estimate the depth map. The original TCMonoDepth was designed to return a GIF and
+                        video; however, we refactored it to return depth map data instead. This depth map represents the
+                        distance between the camera and objects in the scene, providing essential information for simulating
+                        realistic haze conditions. The advantage is that TCMonoDepth is trained on a large dataset of
+                        synchronized stereo video data to accurately estimate depth maps from single images
+                    </p>
 
-                <p>
-                    By customizing and optimizing the dehazing techniques and their implementation, we have made a
-                    significant contribution to the project. Our work not only ensures compatibility with the evaluation
-                    process but also improves the efficiency of the dehazing process, allowing for a more accurate and
-                    comprehensive assessment of the dehazing techniques' performance.
-                </p>
+                    <p>
+                        Efficient and accurate haze generation with modified SeeingThroughFog: During our initial work with
+                        the haze generation process, we identified a problem in the calculation of haze in the original
+                        SeeingThroughFog implementation. To address this issue, we customized SeeingThroughFog by
+                        integrating the OpenCV library, which enabled us to fix the calculation problem and improve the
+                        accuracy of the generated haze.
+                    </p>
+                    <p>
+                        We further optimized the haze generation process by streamlining the interaction between TCMonoDepth
+                        and SeeingThroughFog. Our customized implementation integrated TCMonoDepth's depth data output
+                        directly into the haze generation process, bypassing the need for CSV files. This allowed us to
+                        significantly reduce the processing time to 0.5 seconds per image.
+                    </p>
 
 
-                <hr />
+
+                    <p>We retained the core functionality of SeeingThroughFog, which uses the depth map and atmospheric
+                        properties defined by the beta parameter to calculate the attenuation and scattering coefficients of
+                        the haze.<a href="#ref9"><sub>[9]</sub></a> The final fogged image is produced by combining the
+                        input image and the fog layer created
+                        using these coefficients with a depth-dependent blending function.
+                    </p>
+
+                    <p>
+                        Various beta values: By varying the beta parameter in our customized SeeingThroughFog
+                        implementation, we produce hazy photos with various fog densities in order to assess the
+                        effectiveness of dehazing procedures under various haze situations. In this study, we represented a
+                        variety of haze densities from mild fog to deep fog using four distinct beta values (0.05, 0.01,
+                        0.02, 0.06).
+                    </p>
+
+                    <p>This is some Demo of the Haze Generation by using our customized TCMonoDepth for Video Depth
+                        Estimation and SeeingThroughFog for Haze Generation
+
+                    </p>
+
+                    <div class="hazingImageCompare">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/hazingImage/hazing0005ImageForBDD100K.jpg" />
+                                </div>
+                                0.005
+                            </div>
+                            <div class="col-md-6">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/hazingImage/hazing001ImageForBDD100K.jpg" />
+                                </div>
+                                0.01
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/hazingImage/hazing002ImageForBDD100K.jpg" />
+                                </div>
+                                0.02
+                            </div>
+                            <div class="col-md-6">
+                                <div class="demo">
+                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                    <img src="resources/hazingImage/hazing006ImageForBDD100K.jpg" />
+                                </div>
+                                0.06
+                            </div>
+                        </div>
+
+                        <br />
+                        <p>
+                            By customizing TCMonoDepth and SeeingThroughFog, we generated a realistic and diverse set of
+                            hazy
+                            images that closely resemble real-world haze conditions more efficiently. The different beta
+                            values
+                            allow us to test the robustness of the dehazing techniques under different haze densities,
+                            providing
+                            a thorough evaluation of their performance. Our work demonstrates that we have made significant
+                            contributions to the project by improving the efficiency of the haze generation process and
+                            enabling
+                            a more accurate evaluation of the dehazing techniques.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h2 class="p_subtitle">Dehazing</h2>
+                    <p>After generating the hazy images, we apply the dehazing techniques to the hazy images to restore the
+                        original image quality. The dehazing techniques considered in this study include MSBDN, Dehamer,
+                        Dehamer_indoor, and DCP. These techniques are designed to remove the haze and improve the visibility
+                        of the underlying scene.
+                    </p>
+                    <p>Customization and optimization of dehazing techniques: Some of the dehazing projects we employed did
+                        not output dehazed images by default. To ensure compatibility with our evaluation process and enable
+                        the use of these dehazed images in the next task, we modified the projects to output the dehazed
+                        images.
+                    </p>
+                    <p>Furthermore, we optimized the dehazing process by implementing multi-threading. Our school's GPU
+                        resources were limited, which required us to use multiple GPUs to generate the dehazed images more
+                        quickly. Implementing multi-threading allowed us to significantly speed up the dehazing process and
+                        make better use of available resources.
+                    </p>
+                    <p>Evaluating dehazing performance: To evaluate the performance of the dehazing techniques, we use the
+                        PSNR and SSIM metric to compare the dehazed images with the original, clear images from the BDD100K
+                        dataset[1]. A higher SSIM value indicates better dehazing performance, as it suggests that the
+                        processed image is more similar to the original image in terms of structure, contrast, and
+                        luminance. This metric allows for a quantitative assessment of the dehazing techniques' efficiency
+                        and effectiveness in restoring image quality under various haze conditions.
+                    </p>
+
+                    <p>
+                        By customizing and optimizing the dehazing techniques and their implementation, we have made a
+                        significant contribution to the project. Our work not only ensures compatibility with the evaluation
+                        process but also improves the efficiency of the dehazing process, allowing for a more accurate and
+                        comprehensive assessment of the dehazing techniques' performance.
+                    </p>
+
+
+                
+                </div>
             </div>
         </div>
+        <hr />
         <div class="row">
 
             <div class="col-md-6 mb-4">
-                <h2>Results</h2>
+                <h2 class="p_title">Results</h2>
                 <p>After generating the hazy images, we apply the dehazing techniques to the hazy images to restore the
                     original image quality. The dehazing techniques considered in this study include MSBDN , Dehamer,
                     Dehamer_indoor, and DCP. These techniques are designed to remove the haze and improve the
                     visibility of the underlying scene.</p>
                 <br />
+                <div class="col-md-6 mb-4">
+                    <h2 class="p_subtitle">Results for Dehazing</h2>
+                    <p>
+                        To evaluate the performance of the dehazing techniques, we use the SSIM metric to compare the
+                        dehazed images with the original, clear images from the BDD100K dataset<a
+                            href="#ref1"><sup>[1]</sup></a>. A higher SSIM value
+                        indicates better dehazing performance, as it suggests that the processed image is more similar to
+                        the original image in terms of structure, contrast, and luminance. This metric allows for a
+                        quantitative
+                        assessment of the dehazing techniques' efficiency and effectiveness in restoring image quality under
+                        various haze conditions.
+                    </p>
 
-                <h2>Results for Dehazing</h2>
-                <p>
-                    To evaluate the performance of the dehazing techniques, we use the SSIM metric to compare the
-                    dehazed images with the original, clear images from the BDD100K dataset<a
-                        href="#ref1"><sup>[1]</sup></a>. A higher SSIM value
-                    indicates better dehazing performance, as it suggests that the processed image is more similar to
-                    the original image in terms of structure, contrast, and luminance. This metric allows for a
-                    quantitative
-                    assessment of the dehazing techniques' efficiency and effectiveness in restoring image quality under
-                    various haze conditions.
-                </p>
+                    <!-- BDD100K VAL -->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Dehazing Techniques</th>
+                                <th colspan="3">PSNR (dB)</th>
+                                <th colspan="3">SSIM</th>
+                            </tr>
+                            <tr>
+                                <th>0.01</th>
+                                <th>0.02</th>
+                                <th>0.06</th>
+                                <th>0.01</th>
+                                <th>0.02</th>
+                                <th>0.06</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MSBDN </td>
+                                <td>28.34</td>
+                                <td>25.60</td>
+                                <td>11.14</td>
+                                <td>0.93</td>
+                                <td>0.92</td>
+                                <td>0.68</td>
+                            </tr>
+                            <tr>
+                                <td>Dehamer</td>
+                                <td>25.77</td>
+                                <td>21.72</td>
+                                <td>7.97</td>
+                                <td>0.91</td>
+                                <td>0.87</td>
+                                <td>0.57</td>
+                            </tr>
+                            <tr>
+                                <td>Dehamer_indoor</td>
+                                <td>23.93</td>
+                                <td>23.01</td>
+                                <td>18.43</td>
+                                <td>0.89</td>
+                                <td>0.88</td>
+                                <td>0.81</td>
+                            </tr>
+                            <tr>
+                                <td>DCP</td>
+                                <td>18.41</td>
+                                <td>19.06</td>
+                                <td>18.68</td>
+                                <td>0.81</td>
+                                <td>0.84</td>
+                                <td>0.82</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                <!-- BDD100K VAL -->
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th rowspan="2">Dehazing Techniques</th>
-                            <th colspan="3">PSNR (dB)</th>
-                            <th colspan="3">SSIM</th>
-                        </tr>
-                        <tr>
-                            <th>0.01</th>
-                            <th>0.02</th>
-                            <th>0.06</th>
-                            <th>0.01</th>
-                            <th>0.02</th>
-                            <th>0.06</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>MSBDN </td>
-                            <td>28.34</td>
-                            <td>25.60</td>
-                            <td>11.14</td>
-                            <td>0.93</td>
-                            <td>0.92</td>
-                            <td>0.68</td>
-                        </tr>
-                        <tr>
-                            <td>Dehamer</td>
-                            <td>25.77</td>
-                            <td>21.72</td>
-                            <td>7.97</td>
-                            <td>0.91</td>
-                            <td>0.87</td>
-                            <td>0.57</td>
-                        </tr>
-                        <tr>
-                            <td>Dehamer_indoor</td>
-                            <td>23.93</td>
-                            <td>23.01</td>
-                            <td>18.43</td>
-                            <td>0.89</td>
-                            <td>0.88</td>
-                            <td>0.81</td>
-                        </tr>
-                        <tr>
-                            <td>DCP</td>
-                            <td>18.41</td>
-                            <td>19.06</td>
-                            <td>18.68</td>
-                            <td>0.81</td>
-                            <td>0.84</td>
-                            <td>0.82</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <div class="graph">
+                        <div class="col-md-6">
+                            <canvas id="dehazingChart"></canvas>
+                        </div>
 
-                <div class="graph">
-                    <div class="col-md-6">
-                        <canvas id="dehazingChart"></canvas>
-                    </div>
-
-                    <div class="col-md-6">
-                        <canvas id="psnrChart"></canvas>
+                        <div class="col-md-6">
+                            <canvas id="psnrChart"></canvas>
                     </div>
                 </div>
-
-                <h2>Visual Examples</h2>
-
-                <p>
-                    To show the performance of the dehazing techniques, we have selected some images from
-                    the BDD100K
-                    dataset<a href="#ref1"><sup>[1]</sup></a>. The following images are the original hazy images and the
-                    dehazed images. The
-                    dehazed
-                    images are generated by the dehazing techniques. The dehazing techniques are MSBDN ,
-                    Dehamer,
-                    Dehamer_indoor and DCP. These examples help demonstrate the overall visibility, color
-                    fidelity,
-                    and preservation of image details in the dehazed images.
-                </p>
-                <div class="dehazingImagePreview">
-                    <p>Original and Hazing Image Comparing</p>
-                    <div class="hazingImage">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
-                                    <img src="resources/hazingImage/hazing001ImageForBDD100K.jpg" />
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h2 class="p_subtitle">Visual Examples</h2>
+                    <p>
+                        To show the performance of the dehazing techniques, we have selected some images from
+                        the BDD100K
+                        dataset<a href="#ref1"><sup>[1]</sup></a>. The following images are the original hazy images and the
+                        dehazed images. The
+                        dehazed
+                        images are generated by the dehazing techniques. The dehazing techniques are MSBDN ,
+                        Dehamer,
+                        Dehamer_indoor and DCP. These examples help demonstrate the overall visibility, color
+                        fidelity,
+                        and preservation of image details in the dehazed images.
+                    </p>
+                    <div class="dehazingImagePreview">
+                        <p>Original and Hazing Image Comparing</p>
+                        <div class="hazingImage">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                        <img src="resources/hazingImage/hazing001ImageForBDD100K.jpg" />
+                                    </div>
+                                    0.01
                                 </div>
-                                0.01
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                        <img src="resources/hazingImage/hazing002ImageForBDD100K.jpg" />
+                                    </div>
+                                    0.02
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
+                                        <img src="resources/hazingImage/hazing006ImageForBDD100K.jpg" />
+                                    </div>
+                                    0.06
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
-                                    <img src="resources/hazingImage/hazing002ImageForBDD100K.jpg" />
+
+                        </div>
+                        <br />
+
+                        <p>MSBDN (Hazing and Dehazing)</p>
+                        <div class="hazingImageCompare">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/hazing001ImageForBDD100K.jpg" />
+                                        <img src="resources/dehazingImage/MSBDN/001.jpg" />
+                                    </div>
+                                    0.01
                                 </div>
-                                0.02
-                            </div>
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/originalImageForBDD100K.jpg" />
-                                    <img src="resources/hazingImage/hazing006ImageForBDD100K.jpg" />
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/hazing002ImageForBDD100K.jpg" />
+                                        <img src="resources/dehazingImage/MSBDN/002.jpg" />
+                                    </div>
+                                    0.02
                                 </div>
-                                0.06
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/hazing006ImageForBDD100K.jpg" />
+                                        <img src="resources/dehazingImage/MSBDN/006.jpg" />
+                                    </div>
+                                    0.06
+                                </div>
                             </div>
                         </div>
 
-                    </div>
-                    <br />
-
-                    <p>MSBDN (Hazing and Dehazing)</p>
-                    <div class="hazingImageCompare">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/hazing001ImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/MSBDN/001.jpg" />
+                        <p>Dehamer (Hazing and Dehazing) </p>
+                        <div class="hazingImageCompare">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/hazing001ImageForBDD100K.jpg" />
+                                        <img src="resources/dehazingImage/Dehamer/001.jpg" />
+                                    </div>
+                                    0.01
                                 </div>
-                                0.01
-                            </div>
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/hazing002ImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/MSBDN/002.jpg" />
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/hazing002ImageForBDD100K.jpg" />
+                                        <img src="resources/dehazingImage/Dehamer/002.jpg" />
+                                    </div>
+                                    0.02
                                 </div>
-                                0.02
-                            </div>
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/hazing006ImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/MSBDN/006.jpg" />
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/hazing006ImageForBDD100K.jpg" />
+                                        <img src="resources/dehazingImage/Dehamer/006.jpg" />
+                                    </div>
+                                    0.06
                                 </div>
-                                0.06
                             </div>
                         </div>
-                    </div>
 
-                    <p>Dehamer (Hazing and Dehazing) </p>
-                    <div class="hazingImageCompare">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/hazing001ImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/Dehamer/001.jpg" />
+                        <p>Dehamer_indoor (hazing and dehazing)</p>
+                        <div class="hazingImageCompare">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/hazing001ImageForBDD100K.jpg" />
+                                        <img src="resources/dehazingImage/Dehamer_indoor/001.jpg" />
+                                    </div>
+                                    0.01
                                 </div>
-                                0.01
-                            </div>
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/hazing002ImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/Dehamer/002.jpg" />
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/hazing002ImageForBDD100K.jpg" />
+                                        <img src="resources/dehazingImage/Dehamer_indoor/002.jpg" />
+                                    </div>
+                                    0.02
                                 </div>
-                                0.02
-                            </div>
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/hazing006ImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/Dehamer/006.jpg" />
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/hazing006ImageForBDD100K.jpg" />
+                                        <img src="resources/dehazingImage/Dehamer_indoor/006.jpg" />
+                                    </div>
+                                    0.06
                                 </div>
-                                0.06
                             </div>
                         </div>
-                    </div>
 
-                    <p>Dehamer_indoor (hazing and dehazing)</p>
-                    <div class="hazingImageCompare">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/hazing001ImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/Dehamer_indoor/001.jpg" />
+                        <p>DCP (hazing and dehazing)</p>
+                        <div class="hazingImageCompare">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/hazing001ImageForBDD100K.jpg" />
+                                        <img src="resources/dehazingImage/DCP/001.jpg" />
+                                    </div>
+                                    0.01
                                 </div>
-                                0.01
-                            </div>
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/hazing002ImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/Dehamer_indoor/002.jpg" />
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/hazing002ImageForBDD100K.jpg" />
+                                        <img src="resources/dehazingImage/DCP/002.jpg" />
+                                    </div>
+                                    0.02
                                 </div>
-                                0.02
-                            </div>
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/hazing006ImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/Dehamer_indoor/006.jpg" />
+                                <div class="col-md-4">
+                                    <div class="demo">
+                                        <img src="resources/hazingImage/hazing006ImageForBDD100K.jpg" />
+                                        <img src="resources/dehazingImage/DCP/006.jpg" />
+                                    </div>
+                                    0.06
                                 </div>
-                                0.06
-                            </div>
-                        </div>
-                    </div>
-
-                    <p>DCP (hazing and dehazing)</p>
-                    <div class="hazingImageCompare">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/hazing001ImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/DCP/001.jpg" />
-                                </div>
-                                0.01
-                            </div>
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/hazing002ImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/DCP/002.jpg" />
-                                </div>
-                                0.02
-                            </div>
-                            <div class="col-md-4">
-                                <div class="demo">
-                                    <img src="resources/hazingImage/hazing006ImageForBDD100K.jpg" />
-                                    <img src="resources/dehazingImage/DCP/006.jpg" />
-                                </div>
-                                0.06
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <h2>Performance Analysis</h2>
+                <h2 class="p_title">Performance Analysis</h2>
 
                 <ul>
                     <li>PSNR</li>
@@ -697,7 +714,7 @@
                 <div class="row">
 
                     <div class="col-md-6 mb-4">
-                        <h3>Reference:</h3>
+                        <h2 class="p_title">Reference</h2>
                         <ol>
                             <li id="ref1">BDD100K, "A large-scale diverse driving video database," accessed: Day Month
                                 Year. [Online]. Available: <a
